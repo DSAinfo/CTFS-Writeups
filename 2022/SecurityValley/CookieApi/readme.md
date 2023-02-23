@@ -37,6 +37,9 @@ Al hacer esto, obtenemos una respuesta con un código de estado 200 y el flag de
 ![imagen10](https://user-images.githubusercontent.com/37942177/220958730-74d65695-1108-4e1b-b776-333ba0e1f866.png)
 ![imagen11](https://user-images.githubusercontent.com/37942177/220958794-cf261c32-725b-4b1f-92ee-bc0d514d76f5.png)
 
+## Conclusión
+En conclusión, el reto SecurityValley - Cookie Api se resolvió mediante el análisis del proceso de creación y validación de cookies en los endpoints /api/v1/init y /api/v1/store. Gracias a la inspección inicial y al scripting en Python, pudimos manipular la cookie obtenida y modificar el valor del campo "role" para engañar al servidor y obtener acceso al flag del reto. 
+
 
 
 
