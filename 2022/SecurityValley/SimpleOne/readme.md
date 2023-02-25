@@ -18,7 +18,7 @@ Hasta aquí, no se encontró ningún recurso asociado con la resolución del cha
 
 Por lo que, a partir del árbol encontrado, se elige utilizar la herramienta de fuerza bruta (forced browse) que provee Zap para descubrir directorios accesibles en el servidor web que aloja al recurso. Zap también provee un listado básico de directorios posibles 'directory-list-1.0.txt'.
 
-## Paso 4: Inspección de los resultados obtenidos
+## Paso 3: Inspección de los resultados obtenidos
 
 La primer petición exitosa que podemos ver agregada a nuestro árbol de contenidos es hacia la ruta /s. Inspeccionamos la respuesta, pero vemos que tiene el html del recurso incluído en la ruta raíz:
 
