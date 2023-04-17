@@ -9,7 +9,7 @@ Reto CTF de criptografía en el que nos dan un .txt y tenemos que descifrar el f
 Al abrir el archivo vemos que el contenido está encriptado:
 
 ![image](https://user-images.githubusercontent.com/11562125/232358283-3ed9f1ff-3937-49bc-a366-a25eea45713c.png)
-*extracto de megaxord.txt*
+*extracto de [megaxord.txt](https://github.com/JCAlmazan/CTFS-Writeups/blob/main/2022/piGuys/megaxord/megaxord.txt)*
 
 Debido al nombre del reto (mega'XOR'd) suponemos que se trata de una encriptación utilizando XOR, entonces para desencriptar el texto, utilizamos la herramienta CyberChef.
 Al no saber la key del XOR ni su formato, decidimos utilizar la operación magic. La operación Mágica intenta detectar varias propiedades de los datos de entrada y sugiere qué operaciones podrían ayudar a darle más sentido.
@@ -24,7 +24,7 @@ Por lo tanto activamos el modo intensivo y obtenemos lo siguiente:
 Vemos el texto desencriptado pareciendo ser la copia del texto del artículo de los Power Rangers tomado de Wikipedia:
 
 ![image](https://user-images.githubusercontent.com/11562125/232359583-765f9bc8-edc2-4757-ba1e-4b71a3cfad0c.png)
-*extracto de megaxord_decypted.txt*
+*extracto de [megaxord_decypted.txt](https://github.com/JCAlmazan/CTFS-Writeups/blob/main/2022/piGuys/megaxord/megaxord_decrypted.txt)*
 
 Por último leyendo el texto encontramos casi al final el flag:
 
