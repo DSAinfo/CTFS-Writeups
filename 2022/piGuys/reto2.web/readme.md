@@ -66,6 +66,9 @@ Por último, obtenemos la flag.
 
 <img width="1529" alt="image" src="https://user-images.githubusercontent.com/25467138/236702950-7748946c-939b-47f9-9a54-fee076b1917c.png">
 
+<img width="851" alt="image" src="https://user-images.githubusercontent.com/25467138/236703236-10c1838b-c003-4b6f-8d96-f7c706124a11.png">
+
+
 `flag{JTc0JTc1JTcyJTc0JTc3JTY5JTY3}`
 
 ## Conclusión
