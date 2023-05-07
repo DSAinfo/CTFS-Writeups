@@ -2,6 +2,8 @@ Universidad Nacional de La Plata - Facultad de Informática
 
 Desarrollo seguro de aplicaciones
 
+Materia cursada en el primer semestre de 2022
+
 Integrantes:
 
 * ALMAZÁN, Juan Cruz
