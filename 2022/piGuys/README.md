@@ -1,5 +1,4 @@
-Universidad Nacional de La Plata
-Facultad de Informática
+Universidad Nacional de La Plata - Facultad de Informática
 
 Desarrollo seguro de aplicaciones
 
