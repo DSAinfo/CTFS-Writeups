@@ -6,9 +6,9 @@ Materia cursada en el primer semestre de 2022
 
 Integrantes:
 
-* ALMAZÁN, Juan Cruz
-* DOZO, Tomás
-* GARBINO, Facundo Alejo
+* ALMAZÁN, Juan Cruz (12340/5)
+* DOZO, Tomás (01892/9)
+* GARBINO, Facundo Alejo (01967/0)
 
 Los write-ups de esta carpeta corresponden a los siguientes CTF:
 
