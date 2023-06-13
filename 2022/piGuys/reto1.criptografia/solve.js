@@ -3,7 +3,7 @@
 function decryptXOR(inpString, xorKey) {
     inpString = inpString.split("");
  
-    // ra cada carácter del string, se hace el XOR con la key
+    // para cada carácter del string, se hace el XOR con la key
     for (let i = 0; i < inpString.length; i++)
     {
         inpString[i] = (String.fromCharCode((inpString[i].charCodeAt(0)) ^ xorKey.charCodeAt(0)));
@@ -23,7 +23,7 @@ fs.readFile('megaxord.txt', 'utf8', (err, data) => {
     //buscamos el flag en el texto desencriptado
     const index = decrypted.indexOf("buckeye{");
     if (index > -1) {
-        console.log("\n\nFlag: " + decrypted.substring(index, decrypted.indexOf("}", index) + 1));
+        console.log("Flag: " + decrypted.substring(index, decrypted.indexOf("}", index) + 1));
     }
   });
   
