@@ -22,3 +22,5 @@ For sure. Here is the flag:
 ![img_3](https://github.com/emilianosecchi/CTFS-Writeups/assets/49136614/c069416d-c2ed-4106-83f7-fb5df1415768)
 
 Exportando los bytes de data del paquete pudimos identificar el flag rápidamente. El archivo exportado con el flag se puede ver dentro del directorio actual con el nombre: 'stream8_exported_data'.
+
+![img_4](https://github.com/emilianosecchi/CTFS-Writeups/assets/49136614/e67625e7-664e-4901-8044-8f192c253f70)
