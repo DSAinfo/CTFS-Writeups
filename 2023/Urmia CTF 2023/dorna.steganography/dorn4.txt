@@ -1,0 +1,6 @@
+Hello, wish you success in our event
+
+'dorna lar yovasi' is the nickname of a stadium in Urmia where volleyball lovers gather together.
+This place has hosted important competitions such as the VNL and the Asian Championship.
+
+flag : uctf{ZG9ybmFfbGFyX3lvdmFzaQ==}    *base64-encoded
