@@ -8,6 +8,7 @@ import subprocess
 import os
 import re
 import urllib.request
+import py7zr
 
 HASH = "4bd939ed2e01ed1e8540ed137763d73cd8590323"
 RESOURCE_PATH = "./recurso/crack2.7z"
@@ -89,18 +90,10 @@ def main():
                     print()
 
                     # Extract the challenge resource
-                    print(f"[+] Extracting file", RESOURCE_PATH)
-                    command = [
-                        "7z",
-                        "x",
-                        RESOURCE_PATH,
-                        f"-o{SOLVE_FILES_PATH}",
-                        f"-p{word}",
-                    ]
-
                     try:
-                        subprocess.run(command, check=True)
-                        print()
+                        print(f"[+] Extracting file", RESOURCE_PATH)
+                        with py7zr.SevenZipFile(RESOURCE_PATH, mode='r', password=word) as z:
+                            z.extractall(SOLVE_FILES_PATH)
                         print("[+] Extraction successful")
                         print()
 
@@ -124,7 +117,7 @@ def main():
                                     f"[+] Flag written to {os.path.abspath(FLAG_FILE_PATH)}"
                                 )
 
-                    except subprocess.CalledProcessError as e:
+                    except Exception as e:
                         print(f"[-] Error during extraction: {e}")
                     exit(0)
                 else:
