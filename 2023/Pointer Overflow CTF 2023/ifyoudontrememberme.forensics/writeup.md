@@ -12,7 +12,7 @@ Here is a PDF file that seems to have some problems. I'm not sure what it used t
 - Se aclara que se deben realizar dos pasos para obtener la flag, dado que deberá ser decodificada una vez obtenida.
 
 ### Primer paso
-Conociendo el formato de la flag, el cual se indica en las [reglas del evento](https://pointeroverflowctf.com/rules), como primer paso se procede a buscar la flag mediante la utilidad `strings``:
+Conociendo el formato de la flag, el cual se indica en las [reglas del evento](https://pointeroverflowctf.com/rules), como primer paso se procede a buscar la flag mediante la utilidad `strings`:
 
 ```bash
 strings ./recurso/DF1.pdf | grep poctf
