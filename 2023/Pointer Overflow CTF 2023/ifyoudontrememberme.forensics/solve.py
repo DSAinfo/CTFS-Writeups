@@ -1,3 +1,8 @@
+# File: solve.py
+# Author: Julián Casaburi
+# Date: December 28, 2023
+# Description: This is a script to solve the challenge "If You Don't, Remember Me (Pointer Overflow CTF 2023 - Forensics)".
+
 import re
 from pathlib import Path
 

@@ -4,7 +4,6 @@
 # Description: This is a script to solve the challenge "The Gentle Rocking of the Sun (Pointer Overflow CTF 2023 - Cracking)".
 
 import hashlib
-import subprocess
 import os
 import re
 import urllib.request

@@ -1,3 +1,8 @@
+# File: solve.py
+# Author: Julián Casaburi
+# Date: December 28, 2023
+# Description: This is a script to solve the first step of the challenge "A Petty Wage in Regret (Pointer Overflow CTF 2023 - Forensics)".
+
 from PIL import Image
 import os
 
