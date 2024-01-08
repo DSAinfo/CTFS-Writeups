@@ -57,7 +57,7 @@ except Exception as e:
 # Read encoded flag from file
 file_path = SOLVE_FILES_PATH + "/whats-a-rune/the"
 
-with open(file_path, "r") as file:
+with open(file_path, "r", encoding='utf-8') as file:
     flag = file.read().strip()
 
 # Reverse the transformation
