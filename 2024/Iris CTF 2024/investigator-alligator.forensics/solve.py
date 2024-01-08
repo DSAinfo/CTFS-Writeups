@@ -142,7 +142,7 @@ print()
 
 print(f'[+] Decrypting {encrypted_file_path}')
 
-random.seed("eng0jieh7ahga7eidae6taebohhaicaeraef5ahng8ohb2Tho3ahz7ojooXeixoh0thoolung7eingietai8hiechar6ahchohn6uwah2Keid5phoil7Oovool3Quai")
+random.seed(extracted_data.strip())
 with open(encrypted_file_path, "rb") as f:
 	data = f.read()
 stream = random.randbytes(len(data))
