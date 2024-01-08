@@ -94,12 +94,18 @@ Flag: `irisctf{0h_cr4p_ive_left_my_k3ys_out_4nd_ab0ut}`
 ![Solved](./images/skats-sd-card-solved.png)
 
 ## Solve utilizando solve.py
-El script requiere el package pexpect. La instalación de requerimientos se realiza con el siguiente comando:
+### Requerimientos
+El script requiere el package pexpect.
+
+> NOTA: pexpect.spawn (utilizado para ingresar la passphrase automáticamente, funciona únicamente en linux).  
+
+La instalación de requerimientos se realiza con el siguiente comando:
 
 ```bash
 pip install -r requirements.txt
 ```
 
+### Ejecución
 Se deberá ejecutar el siguiente comando:
 
 ```bash

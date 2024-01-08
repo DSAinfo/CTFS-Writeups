@@ -82,12 +82,14 @@ Flag: `irisctf{i_r3411y_1ik3_num63r5}`
 ![Solved](./images/czech-where-solved.png)
 
 ## Solve utilizando solve.py
+### Requerimientos
 El script requiere múltiples packages. La instalación de requerimientos se realiza con el siguiente comando:
 
 ```bash
 pip install -r requirements.txt
 ```
 
+### Ejecución
 Se deberá ejecutar el siguiente comando:
 
 ```bash

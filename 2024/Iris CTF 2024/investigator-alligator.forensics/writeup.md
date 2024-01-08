@@ -177,12 +177,21 @@ Flag: `irisctf{y0ure_a_r3al_m4ster_det3ctive_ty_f0r_s4v1ng_0ur_d4ta}`
 ![Solved](./images/investigator-alligator-solved.png)
 
 ## Solve utilizando solve.py
+### Requerimientos
 El script requiere múltiples packages. La instalación de requerimientos se realiza con el siguiente comando:
 
 ```bash
 pip install -r requirements.txt
 ```
 
+Además requiere tener instalado [7z](https://linux.die.net/man/1/7z)
+
+```py
+# Run the 7z command to extract files
+command = ["7z", "e", "-aos", output_file, capture_to_extract, f"-o{extracted_path}"]
+```
+
+### Ejecución
 Se deberá ejecutar el siguiente comando:
 
 ```bash
