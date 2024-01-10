@@ -1,1 +1,2 @@
 py7zr
+tqdm

@@ -149,7 +149,11 @@ Flag: `poctf{uwsp_c411f02n14_d234m1n9}`
 ![Solved](./images/thegentlerockingofthesun-solved.png)
 
 ## Solve utilizando solve.py
-El script requiere el package py7zr para extraer el recurso .7z. La instalación de requerimientos se realiza con el siguiente comando:
+El script requiere los packages:
+- py7zr para extraer el recurso .7z
+- tqdm para mostrar barras de progreso.
+
+La instalación de requerimientos se realiza con el siguiente comando:
 
 ```bash
 pip install -r requirements.txt
