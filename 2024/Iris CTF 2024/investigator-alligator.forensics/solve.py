@@ -26,11 +26,12 @@ encrypted_file_path = os.path.join(extracted_path, "encrypted.img")
 decrypted_file_path = os.path.join(output_dir, "decrypted.img")
 decrypted_files_path = os.path.join(output_dir, "decrypted")
 super_duper_important_info_path = "data/super_duper_important_info.png"
+flag_file_path = os.path.join(output_dir, "flag_part2.txt")
 
 def write_flag_to_file(flag, flag_file_path):
     with open(flag_file_path, 'w') as flag_file:
         flag_file.write(flag)
-    print(f'[+] Flag written to {flag_file_path}')
+    print(f'[+] Flag written to {os.path.abspath(flag_file_path)}')
 
 def remove_non_unicode_chars(input_str):
     # Use a regular expression to match only Unicode characters
@@ -175,7 +176,7 @@ try:
                 flag_part2 = remove_non_unicode_chars(line)
                 print(f'[+] Flag part 2/2: {flag_part2}')
                 # Write flag to file
-                write_flag_to_file(flag_part2, os.path.join(output_dir, "flag_part2.txt"))
+                write_flag_to_file(flag_part2, flag_file_path)
                 break
         else:
             print("No lines containing 'ctive_ty' found.")

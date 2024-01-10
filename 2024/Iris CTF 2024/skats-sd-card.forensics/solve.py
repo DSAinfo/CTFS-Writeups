@@ -32,33 +32,34 @@ def find_flag_in_commit(commit_hash, repo_path):
 def write_flag_to_file(flag, flag_file_path):
     with open(flag_file_path, 'w') as flag_file:
         flag_file.write(flag)
-    print(f'[+] Flag written to {flag_file_path}')
+    print(f"[+] Flag written to {os.path.abspath(flag_file_path)}")
 
 def main():
+    solve_dir = "./solve"
+    repo_dir = os.path.join(solve_dir, "skats-interesting-things")
+    flag_dir = os.path.join(solve_dir, "flag.txt")
+
     # Cloning private repo
     private_key_path = './recurso/id_rsa'
     repo_url = 'git@github.com:IrisSec/skats-interesting-things.git'
-    output_dir = './solve/skats-interesting-things'
     passphrase = "password"
     print(f'[+] Cloning private repo {repo_url} using key {private_key_path} and passphrase {passphrase}')
-    clone_private_repo(private_key_path, passphrase, repo_url, output_dir)
+    clone_private_repo(private_key_path, passphrase, repo_url, repo_dir)
 
     # Finding flag in commit
     commit_hash = '680ec84ca3877b9a4083242a192eb4481050edc5'
     print(f'[+] Searching the flag in the diff of commit {commit_hash}')
-    flag = find_flag_in_commit(commit_hash, output_dir)
+    flag = find_flag_in_commit(commit_hash, repo_dir)
 
     if flag:
         print(f'[+] Flag found in commit {commit_hash}: {flag}')
 
-        SOLVE_FILES_PATH = "./solve"
+        # Create the solve directory if it doesn't exist
+        if not os.path.exists(solve_dir):
+            os.makedirs(solve_dir)
 
         # Write flag to file
-        # Create the solve directory if it doesn't exist
-        if not os.path.exists(SOLVE_FILES_PATH):
-            os.makedirs(SOLVE_FILES_PATH)
-
-        write_flag_to_file(flag, SOLVE_FILES_PATH + "/flag.txt")
+        write_flag_to_file(flag, flag_dir)
     else:
         print('[-] Flag not found.')
 

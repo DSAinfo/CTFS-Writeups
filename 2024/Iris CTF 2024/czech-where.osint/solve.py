@@ -9,11 +9,12 @@ import unicodedata
 import os
 
 SOLVE_FILES_PATH = "./solve"
+FLAG_FILE_PATH = os.path.join(SOLVE_FILES_PATH, "flag.txt")
 
 def write_flag_to_file(flag, flag_file_path):
     with open(flag_file_path, 'w') as flag_file:
         flag_file.write(flag)
-    print(f'[+] Flag written to {flag_file_path}')
+    print(f"[+] Flag written to {os.path.abspath(FLAG_FILE_PATH)}")
 
 def extract_location_info(html_content, place_name):
     # Extract content between script tags
@@ -73,7 +74,7 @@ def get_location_info(place_name):
             if not os.path.exists(SOLVE_FILES_PATH):
                 os.makedirs(SOLVE_FILES_PATH)
 
-            write_flag_to_file(flag, SOLVE_FILES_PATH + "/flag.txt")
+            write_flag_to_file(flag, FLAG_FILE_PATH)
             
             return location_name
         else:

@@ -19,7 +19,7 @@ flag_file_path = os.path.join(SOLVE_FILES_PATH, "flag.txt")
 def write_flag_to_file(flag, flag_file_path):
     with open(flag_file_path, "w") as flag_file:
         flag_file.write(flag)
-    print(f"[+] Flag written to {flag_file_path}")
+        print(f"[+] Flag written to {os.path.abspath(flag_file_path)}")
 
 
 # Check if the resource already exists
