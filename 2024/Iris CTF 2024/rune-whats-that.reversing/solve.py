@@ -1,3 +1,8 @@
+# File: solve.py
+# Author: Julián Casaburi
+# Date: January 6, 2024
+# Description: This is a script to solve the challenge "Rune? What's that? (Iris CTF 2024 - Reverse Engineering)".
+
 import tarfile
 import os
 import requests

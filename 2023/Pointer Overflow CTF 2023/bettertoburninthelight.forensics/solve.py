@@ -1,3 +1,8 @@
+# File: solve.py
+# Author: Julián Casaburi
+# Date: December 28, 2023
+# Description: This is a script to solve the challenge "Better to Burn in the Light (Pointer Overflow CTF 2023 - Forensics)".
+
 import os
 import fs
 

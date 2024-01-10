@@ -1,3 +1,8 @@
+# File: solve.py
+# Author: Julián Casaburi
+# Date: January 6, 2024
+# Description: This is a script to solve the challenge "Investigator Alligator (Iris CTF 2024 - Forensics)".
+
 import gzip
 import shutil
 import os
