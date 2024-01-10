@@ -62,6 +62,14 @@ Flag: `irisctf{zlata_ulicka_u_daliborky}`
 
 **NOTA**: dado que el script utiliza web scraping, es posible que deje de funcionar correctamente ante una actualización de Google Maps. Una alternativa es hacer un script que utilice una API Key.
 
+### Requerimientos
+El script requiere múltiples packages. La instalación de requerimientos se realiza con el siguiente comando:
+
+```bash
+pip install -r requirements.txt
+```
+
+### Ejecución
 Se deberá ejecutar el siguiente comando:
 
 ```bash
