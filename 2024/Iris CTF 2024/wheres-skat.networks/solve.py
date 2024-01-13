@@ -12,13 +12,14 @@ import os
 import urllib.request
 import subprocess
 import webbrowser
+import json
 
 RESOURCE_URL = "https://cdn.2024.irisc.tf/wheres-skat.tar.gz"
 
 RESOURCE1_PATH = os.path.join(".", "recurso", "wheres-skat.tar.gz")
 SOLVE_FILES_PATH = os.path.join(".", "solve")
 RESOURCE2_PATH = os.path.join(SOLVE_FILES_PATH, "wheres-skat", "wheres-skat.zip")
-GEOWIFI_PATH = os.path.join(SOLVE_FILES_PATH, "geowifi-main", "geowifi.py")
+GEOWIFI_PATH = os.path.join(SOLVE_FILES_PATH, "geowifi-main")
 PCAP_FILE = os.path.join(SOLVE_FILES_PATH, "wheres-skat.pcap")
 
 # GitHub repository URL
@@ -65,37 +66,50 @@ def download_and_extract_github_repo(repo_url, target_folder):
 
     print(f"Repository downloaded and extracted to {target_folder}")
 
-def extract_lat_lon_from_output(output):
-    for line in output.split('\n'):
-        if 'apple' in line:
-            parts = line.split('│')
-            if len(parts) >= 6:
-                lat = parts[4].strip()
-                lng = parts[5].strip()
-                return lat, lng
-    return None, None
-
 def geowifi_lookup(geowifi_path, target_bssid):
-    arguments = ['-s', 'bssid', target_bssid]
+    arguments = ['-s', 'bssid', target_bssid, '-ojson']
+
     try:
+        # Ensure geowifi_path is an absolute path
+        geowifi_path = os.path.abspath(geowifi_path)
+        
         print(f'[+] Running geowifi lookup for BSSID {arguments[2]}:')
-        process_output = subprocess.check_output(['python', geowifi_path] + arguments, text=True)
-        print(process_output)
-        lat, lng = extract_lat_lon_from_output(process_output)
+        
+        # Use subprocess.run to run geowifi. Change the working directory (cwd) so it can find the /results folder
+        subprocess.run(['python', "geowifi.py"] + arguments, check=True, cwd=geowifi_path)
 
-        if lat is not None and lng is not None:
-            d = dict()
-            d['lat'] = lat
-            d['lng'] = lng
-            return d
+        results_path = os.path.join(geowifi_path, "results")
+        print(f'[+] Geowifi lookup completed successfully. Output saved to {results_path}')
+
+        # Get the last modified json file in geowifi_path + "/results"
+        results_files = [os.path.join(results_path, f) for f in os.listdir(results_path) if os.path.isfile(os.path.join(results_path, f))]
+        results_files.sort(key=lambda x: os.path.getmtime(x))
+        results_file = results_files[-1]
+
+        # Read the results_file json, extract latitude and longitude and create a dictionary
+        with open(results_file, 'r') as file:
+            data = json.load(file)
+
+        # Find the "apple" module in the list
+        apple_data = next((item for item in data if item.get('module') == 'apple'), None)
+
+        if apple_data:
+            # Extract latitude and longitude
+            latitude = apple_data.get('latitude')
+            longitude = apple_data.get('longitude')
+
+            # Create a dictionary with latitude and longitude
+            location_dict = {'latitude': latitude, 'longitude': longitude}
+
+            return location_dict
         else:
-            print("[-] Latitude and longitude not found in the output.")
+            print("[-] No 'apple' module found in the JSON data.")
             return None
-
+        
     except subprocess.CalledProcessError as e:
-        print(f"[-] Error during geowifi lookup: {e}")
+        print(f'[-] Error running geowifi: {e.stderr}')
     except Exception as e:
-        print(f"[-] An error occurred: {e}")
+        print(f'[-] An unexpected error occurred: {e}')
 
 if __name__ == "__main__":
 
@@ -183,17 +197,24 @@ if __name__ == "__main__":
     for target_bssid in target_bssids:
         geowifi_dict[target_bssid] = geowifi_lookup(GEOWIFI_PATH, target_bssid)
         if geowifi_dict[target_bssid]:
-            print(f"[+] BSSID: {target_bssid} | Latitude: {geowifi_dict[target_bssid]['lat']} | Longitude: {geowifi_dict[target_bssid]['lng']}")
+            print(f"[+] BSSID: {target_bssid} | Latitude: {geowifi_dict[target_bssid]['latitude']} | Longitude: {geowifi_dict[target_bssid]['longitude']}")
+            # Save BSSID, latitude, longitude to SOLVE_FILES_PATH + target_bssid (replace : with _) + ".txt"
+            bssid_flag_path = os.path.join(SOLVE_FILES_PATH, target_bssid.replace(':', '_') + ".txt")
+            with open(bssid_flag_path, 'w') as file:
+                file.write(f'BSSID: {target_bssid}\n')
+                file.write(f'Latitude: {geowifi_dict[target_bssid]["latitude"]}\n')
+                file.write(f'Longitude: {geowifi_dict[target_bssid]["longitude"]}\n')
+                print(f"[+] {target_bssid} coords written to {os.path.abspath(bssid_flag_path)}")
             print()
     
     print("[+] Lat, Lng for BSSIDs")
     for key, value in geowifi_dict.items():
         print(f'BSSID:{key}: {value}')
-        url = f'https://www.google.com/maps/place/{value["lat"]},{value["lng"]}'
+        url = f'https://www.google.com/maps/place/{value["latitude"]},{value["longitude"]}'
         print()
         print(f'[+] Launching google maps on default web browser. URL: {url}')
         print()
         webbrowser.open(url)
     
     print()
-    print(f"Get the location's name using google maps.")
+    print(f"[+] FLAG: Get the location's name using google maps. Format: 'irisctf{{location_name}}'")
