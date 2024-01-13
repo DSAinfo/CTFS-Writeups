@@ -1,3 +1,8 @@
+# File: solve.py
+# Author: Julián Casaburi
+# Date: December 28, 2023
+# Description: This is a script to solve the challenge "The Gentle Rocking of the Sun (Pointer Overflow CTF 2023 - Cracking)".
+
 import hashlib
 import os
 import re
@@ -12,6 +17,7 @@ WORDLIST_PATH = "./german_de_DE.dic"
 SOLVE_FILES_PATH = "./solve"
 PASSWORD_FILE_PATH = os.path.join(SOLVE_FILES_PATH, "password_7z_step1.txt")
 FLAG_FILE_PATH = os.path.join(SOLVE_FILES_PATH, "flag.txt")
+DICTIONARY_URL = "https://github.com/CSL-LABS/CrackingWordLists/raw/master/dics/lang/german_de_DE.dic"
 
 def detect_hash_type(hash_value):
     hash_algorithms = {
@@ -63,8 +69,12 @@ def main():
         if os.path.isfile(WORDLIST_PATH):
             print(f"[-] Dictionary found at {os.path.abspath(WORDLIST_PATH)}. Skipping download.")
         else:
-            # Download the dictionary if not present
-            download_dictionary("https://github.com/CSL-LABS/CrackingWordLists/raw/master/dics/lang/german_de_DE.dic", WORDLIST_PATH)
+            try:
+                # Download the dictionary if not present
+                download_dictionary(DICTIONARY_URL, WORDLIST_PATH)
+            except Exception as e:
+                print(f"[-] Error downloading dictionary: {e}")
+                exit()
 
         total_passwords = count_passwords(WORDLIST_PATH)
 
