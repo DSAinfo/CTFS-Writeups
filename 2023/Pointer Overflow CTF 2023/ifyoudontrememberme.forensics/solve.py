@@ -6,6 +6,11 @@
 import re
 from pathlib import Path
 
+RESOURCE_FOLDER = './recurso/'
+OUTPUT_FOLDER = './solve/'
+PDF_FILE_NAME = 'DF1.pdf'
+OUTPUT_FILE_NAME = 'flag.txt'
+
 def extract_flag(flag_with_encoded_part):
     # Split into non-hex and hex parts
     flag_beginning, flag_hex_part = flag_with_encoded_part.split('_')
@@ -29,8 +34,8 @@ def main():
     pattern = re.compile(rb'poctf.*?}', re.DOTALL)
 
     # Challenge resource
-    pdf_file_path = Path('./recurso/DF1.pdf')
-    output_file_path = Path('./solve/flag.txt')
+    pdf_file_path = Path(RESOURCE_FOLDER) / PDF_FILE_NAME
+    output_file_path = Path(OUTPUT_FOLDER) / OUTPUT_FILE_NAME
 
     # Create output folder if it doesn't exist
     output_file_path.parent.mkdir(parents=True, exist_ok=True)
@@ -57,7 +62,7 @@ def main():
 
             # Write the flag to a text file
             output_file.write(flag)
-            print(f'[+] Flag written to {output_file_path.resolve()}') # Display the absolute path
+            print(f'[+] Flag written to {output_file_path.resolve()}')  # Display the absolute path
 
         else:
             print('[-] No match found.')

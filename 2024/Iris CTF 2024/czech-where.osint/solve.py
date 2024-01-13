@@ -8,6 +8,7 @@ import re
 import unicodedata
 import os
 
+PLACE_NAME = "Czech Wooden Products"
 SOLVE_FILES_PATH = "./solve"
 FLAG_FILE_PATH = os.path.join(SOLVE_FILES_PATH, "flag.txt")
 GOOGLE_MAPS_URL = "https://www.google.com/maps/search/"
@@ -64,8 +65,8 @@ def process_location_info(place_name, response_text):
 
         print()
 
-        if not os.path.exists(SOLVE_FILES_PATH):
-            os.makedirs(SOLVE_FILES_PATH)
+        # Ensure the solve directory exists
+        os.makedirs(SOLVE_FILES_PATH, exist_ok=True)
 
         for i, flag in enumerate(flags):
             flag_file_path = os.path.join(SOLVE_FILES_PATH, f"flag_{i + 1}.txt")
@@ -95,8 +96,7 @@ def get_all_location_info(place_name):
         return None
 
 def main():
-    place_name = "Czech Wooden Products"
-    location_names = get_all_location_info(place_name)
+    location_names = get_all_location_info(PLACE_NAME)
 
 if __name__ == "__main__":
     main()

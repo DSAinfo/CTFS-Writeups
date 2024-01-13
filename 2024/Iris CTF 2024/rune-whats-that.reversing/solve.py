@@ -8,12 +8,12 @@ import os
 import requests
 from tqdm import tqdm
 
-resource_url = "https://cdn.2024.irisc.tf/whats-a-rune.tar.gz"
+RESOURCE_URL = "https://cdn.2024.irisc.tf/whats-a-rune.tar.gz"
 
 RESOURCE1_PATH = os.path.join(".", "recurso", "whats-a-rune.tar.gz")
 SOLVE_FILES_PATH = os.path.join(".", "solve")
-file_path = os.path.join(SOLVE_FILES_PATH, "whats-a-rune", "the")
-flag_file_path = os.path.join(SOLVE_FILES_PATH, "flag.txt")
+FILE_PATH = os.path.join(SOLVE_FILES_PATH, "whats-a-rune", "the")
+FLAG_FILE_PATH = os.path.join(SOLVE_FILES_PATH, "flag.txt")
 
 
 def write_flag_to_file(flag, flag_file_path):
@@ -30,9 +30,9 @@ if not os.path.exists(RESOURCE1_PATH):
         os.makedirs(os.path.dirname(RESOURCE1_PATH), exist_ok=True)
 
         # Download the file
-        print(f"[+] Downloading file {RESOURCE1_PATH} from {resource_url}")
+        print(f"[+] Downloading file {RESOURCE1_PATH} from {RESOURCE_URL}")
         # Download the file with tqdm for progress bar
-        response = requests.get(resource_url, stream=True)
+        response = requests.get(RESOURCE_URL, stream=True)
         total_size = int(response.headers.get("content-length", 0))
 
         with open(RESOURCE1_PATH, "wb") as file, tqdm(
@@ -61,7 +61,7 @@ try:
     print()
 
     # Read encoded flag from file
-    with open(file_path, "r", encoding="utf-8") as file:
+    with open(FILE_PATH, "r", encoding="utf-8") as file:
         flag = file.read().strip()
 
     # Reverse the transformation
@@ -86,10 +86,9 @@ try:
 
     # Write flag to file
     # Create the solve directory if it doesn't exist
-    if not os.path.exists(SOLVE_FILES_PATH):
-        os.makedirs(SOLVE_FILES_PATH)
+    os.makedirs(SOLVE_FILES_PATH, exist_ok=True)
 
-    write_flag_to_file(flag, flag_file_path)
+    write_flag_to_file(flag, FLAG_FILE_PATH)
 
 except Exception as e:
     print(f"[-] Error during extraction: {e}")

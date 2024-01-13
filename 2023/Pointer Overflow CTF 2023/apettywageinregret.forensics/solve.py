@@ -7,7 +7,7 @@ from PIL import Image
 import os
 
 SOLVE_FILES_PATH = "./solve"
-FLAG_PART1_FILE_PATH = SOLVE_FILES_PATH + "/flag_part1.txt"
+FLAG_PART1_FILE_PATH = os.path.join(SOLVE_FILES_PATH, "flag_part1.txt")
 
 def get_decoded_user_comment(img):
     exif_data = img._getexif()
@@ -37,8 +37,7 @@ def main():
                 print("[+] Flag P1/2:", extracted_flag)
                 
                 # Create the solve directory if it doesn't exist
-                if not os.path.exists(SOLVE_FILES_PATH):
-                    os.makedirs(SOLVE_FILES_PATH)
+                os.makedirs(SOLVE_FILES_PATH, exist_ok=True)
                 
                 # Save the result to step1.txt
                 with open(FLAG_PART1_FILE_PATH, 'w') as step1_file:

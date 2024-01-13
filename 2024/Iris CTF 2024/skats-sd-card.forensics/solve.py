@@ -8,6 +8,16 @@ import re
 import pexpect
 import os
 
+# Constants
+RECURSO_DIR = './recurso'
+PRIVATE_KEY_PATH = os.path.join(RECURSO_DIR, 'id_rsa')
+REPO_URL = 'git@github.com:IrisSec/skats-interesting-things.git'
+PASSPHRASE = "password"
+SOLVE_DIR = "./solve"
+REPO_DIR = os.path.join(SOLVE_DIR, "skats-interesting-things")
+FLAG_DIR = os.path.join(SOLVE_DIR, "flag.txt")
+COMMIT_HASH = '680ec84ca3877b9a4083242a192eb4481050edc5'
+
 def clone_private_repo(private_key_path, passphrase, repo_url, output_dir):
     git_command = f'git'
     
@@ -35,31 +45,20 @@ def write_flag_to_file(flag, flag_file_path):
     print(f"[+] Flag written to {os.path.abspath(flag_file_path)}")
 
 def main():
-    solve_dir = "./solve"
-    repo_dir = os.path.join(solve_dir, "skats-interesting-things")
-    flag_dir = os.path.join(solve_dir, "flag.txt")
+    print(f'[+] Cloning private repo {REPO_URL} using key {PRIVATE_KEY_PATH} and passphrase {PASSPHRASE}')
+    clone_private_repo(PRIVATE_KEY_PATH, PASSPHRASE, REPO_URL, REPO_DIR)
 
-    # Cloning private repo
-    private_key_path = './recurso/id_rsa'
-    repo_url = 'git@github.com:IrisSec/skats-interesting-things.git'
-    passphrase = "password"
-    print(f'[+] Cloning private repo {repo_url} using key {private_key_path} and passphrase {passphrase}')
-    clone_private_repo(private_key_path, passphrase, repo_url, repo_dir)
-
-    # Finding flag in commit
-    commit_hash = '680ec84ca3877b9a4083242a192eb4481050edc5'
-    print(f'[+] Searching the flag in the diff of commit {commit_hash}')
-    flag = find_flag_in_commit(commit_hash, repo_dir)
+    print(f'[+] Searching the flag in the diff of commit {COMMIT_HASH}')
+    flag = find_flag_in_commit(COMMIT_HASH, REPO_DIR)
 
     if flag:
-        print(f'[+] Flag found in commit {commit_hash}: {flag}')
+        print(f'[+] Flag found in commit {COMMIT_HASH}: {flag}')
 
         # Create the solve directory if it doesn't exist
-        if not os.path.exists(solve_dir):
-            os.makedirs(solve_dir)
+        os.makedirs(SOLVE_DIR, exist_ok=True)
 
         # Write flag to file
-        write_flag_to_file(flag, flag_dir)
+        write_flag_to_file(flag, FLAG_DIR)
     else:
         print('[-] Flag not found.')
 

@@ -141,7 +141,7 @@ def extract_tcp_data(file_path, port=9281):
 
 # pcap
 print()
-file_path = output_dir + '/extracted-files/network'
+file_path = os.path.join(extracted_path, "network")
 print(f'[+] Processing {file_path}')
 extracted_data = extract_tcp_data(file_path)
 print()

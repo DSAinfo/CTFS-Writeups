@@ -15,9 +15,12 @@ import webbrowser
 
 RESOURCE_URL = "https://cdn.2024.irisc.tf/wheres-skat.tar.gz"
 
-RESOURCE1_PATH = "./recurso/wheres-skat.tar.gz"
-SOLVE_FILES_PATH = "./solve"
-RESOURCE2_PATH = SOLVE_FILES_PATH + "/wheres-skat/wheres-skat.zip"
+RESOURCE1_PATH = os.path.join(".", "recurso", "wheres-skat.tar.gz")
+SOLVE_FILES_PATH = os.path.join(".", "solve")
+RESOURCE2_PATH = os.path.join(SOLVE_FILES_PATH, "wheres-skat", "wheres-skat.zip")
+GEOWIFI_PATH = os.path.join(SOLVE_FILES_PATH, "geowifi-main", "geowifi.py")
+PCAP_FILE = os.path.join(SOLVE_FILES_PATH, "wheres-skat.pcap")
+
 # GitHub repository URL
 REPO_URL = 'https://github.com/GONZOsint/geowifi'
 
@@ -126,7 +129,6 @@ if __name__ == "__main__":
     else:
         print(f"[+] The file {RESOURCE1_PATH} already exists. Skipping download")
 
-    pcap_file = SOLVE_FILES_PATH + "/wheres-skat.pcap"
     target_bssids = ["ba:46:9d:1b:28:5e", "b2:46:9d:1b:28:5e"]
 
     try:
@@ -152,8 +154,8 @@ if __name__ == "__main__":
 
     try:
         # Extract all WiFi BSSIDs from the pcap file
-        print(f'[+] Extracting BSSIDs from capture: {pcap_file}')
-        wifi_bssids = extract_wifi_bssids(pcap_file)
+        print(f'[+] Extracting BSSIDs from capture: {PCAP_FILE}')
+        wifi_bssids = extract_wifi_bssids(PCAP_FILE)
         print()
 
         print(f'[+] Listing BSSIDs')
@@ -176,11 +178,10 @@ if __name__ == "__main__":
         print(f"[-] Error: {e}")
     
     # Geowifi
-    geowifi_path = SOLVE_FILES_PATH + "/geowifi-main/geowifi.py"
     geowifi_dict = dict()
 
     for target_bssid in target_bssids:
-        geowifi_dict[target_bssid] = geowifi_lookup(geowifi_path, target_bssid)
+        geowifi_dict[target_bssid] = geowifi_lookup(GEOWIFI_PATH, target_bssid)
         if geowifi_dict[target_bssid]:
             print(f"[+] BSSID: {target_bssid} | Latitude: {geowifi_dict[target_bssid]['lat']} | Longitude: {geowifi_dict[target_bssid]['lng']}")
             print()
