@@ -47,7 +47,9 @@ def remove_non_unicode_chars(input_str):
 os.makedirs(output_dir, exist_ok=True)
 
 # Check if the resource already exists
+resource_available = True  # Track resource availability
 if not os.path.exists(input_file):
+    resource_available = False
     # If the file doesn't exist, download it
     try:
         # Create the 'recurso' directory if it doesn't exist
@@ -70,15 +72,20 @@ if not os.path.exists(input_file):
                 bar.update(len(data))
                 file.write(data)
         
+        resource_available = True
         print(f"[+] File downloaded to {input_file}")
     except requests.exceptions.RequestException as primary_err:
         print(f"[-] Failed to download the file from the primary URL: {primary_err}")
 
         # If the primary URL download fails, try the backup URL
         try:
-            # Download the file from the backup URL
             print(f"[+] Downloading file {input_file} from backup URL: {RESOURCE_BACKUP_URL}")
             response = requests.get(RESOURCE_BACKUP_URL, stream=True)
+
+            # NoSuchBucket
+            if 'application/gzip' not in response.headers['Content-Type']:
+                raise ValueError("URL does not point to a file")
+
             total_size = int(response.headers.get('content-length', 0))
 
             # Download the file with tqdm for progress bar
@@ -92,16 +99,23 @@ if not os.path.exists(input_file):
                 for data in response.iter_content(chunk_size=1024):
                     bar.update(len(data))
                     file.write(data)
-            
+
+            resource_available = True
             print(f"[+] File downloaded to {input_file} (from backup URL)")
-        except requests.exceptions.RequestException as backup_err:
+        except (requests.exceptions.RequestException, ValueError) as backup_err:
             print(f"[-] Failed to download the file from the backup URL: {backup_err}")
+    except Exception as e:
+        print(f"[-] Failed to download the file: {e}")
 else:
     print(f"[+] The file {input_file} already exists. Skipping download")
 
+if not resource_available:
+    print(f'[-] Resource {input_file} not available. Exiting.')
+    exit(1)
+
 if not os.path.exists(output_file):
     try:
-        print(f"[+] Extracting file", input_file)
+        print(f'[+] Extracting file {input_file} to {output_file}')
         with gzip.open(input_file, 'rb') as f_in, open(output_file, 'wb') as f_out:
             shutil.copyfileobj(f_in, f_out)
         print(f"[+] File '{input_file}' has been successfully extracted to '{output_file}'.")

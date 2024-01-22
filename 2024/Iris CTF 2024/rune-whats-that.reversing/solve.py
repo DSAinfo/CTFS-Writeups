@@ -15,15 +15,15 @@ SOLVE_FILES_PATH = os.path.join(".", "solve")
 FILE_PATH = os.path.join(SOLVE_FILES_PATH, "whats-a-rune", "the")
 FLAG_FILE_PATH = os.path.join(SOLVE_FILES_PATH, "flag.txt")
 
-
 def write_flag_to_file(flag, flag_file_path):
     with open(flag_file_path, "w") as flag_file:
         flag_file.write(flag)
         print(f"[+] Flag written to {os.path.abspath(flag_file_path)}")
 
-
 # Check if the resource already exists
+resource_available = True  # Track resource availability
 if not os.path.exists(RESOURCE1_PATH):
+    resource_available = False
     # If the file doesn't exist, download it
     try:
         # Create the 'recurso' directory if it doesn't exist
@@ -46,15 +46,20 @@ if not os.path.exists(RESOURCE1_PATH):
                 bar.update(len(data))
                 file.write(data)
 
+        resource_available = True
         print(f"[+] File downloaded to {RESOURCE1_PATH}")
     except Exception as e:
         print(f"[-] Failed to download the file. Error: {e}")
 else:
     print(f"[+] The file {RESOURCE1_PATH} already exists. Skipping download")
 
+if not resource_available:
+    print(f'[-] Resource {RESOURCE1_PATH} not available. Exiting.')
+    exit(1)
+
 # Extract the challenge resource using tarfile
 try:
-    print(f"[+] Extracting file {RESOURCE1_PATH}")
+    print(f"[+] Extracting file {RESOURCE1_PATH} to {SOLVE_FILES_PATH}")
     with tarfile.open(RESOURCE1_PATH, "r:gz") as tar:
         tar.extractall(SOLVE_FILES_PATH)
     print(f"[+] Extraction of file {RESOURCE1_PATH} successful")

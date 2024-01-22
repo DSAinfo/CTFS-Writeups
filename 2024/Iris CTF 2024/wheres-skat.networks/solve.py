@@ -114,7 +114,9 @@ def geowifi_lookup(geowifi_path, target_bssid):
 if __name__ == "__main__":
 
     # Check if the resource already exists
+    resource_available = True  # Track resource availability
     if not os.path.exists(RESOURCE1_PATH):
+        resource_available = False
         # If the file doesn't exist, download it
         try:
             # Create the 'recurso' directory if it doesn't exist
@@ -137,16 +139,21 @@ if __name__ == "__main__":
                     bar.update(len(data))
                     file.write(data)
             
+            resource_available = True
             print(f"[+] File downloaded to {RESOURCE1_PATH}")
         except Exception as e:
             print(f"[-] Failed to download the file. Error: {e}")
     else:
         print(f"[+] The file {RESOURCE1_PATH} already exists. Skipping download")
 
+    if not resource_available:
+        print(f'[-] Resource {RESOURCE1_PATH} not available. Exiting.')
+        exit(1)
+
     target_bssids = ["ba:46:9d:1b:28:5e", "b2:46:9d:1b:28:5e"]
 
     try:
-        print(f"[+] Extracting file {RESOURCE1_PATH}")
+        print(f"[+] Extracting file {RESOURCE1_PATH} to {SOLVE_FILES_PATH}")
         with tarfile.open(RESOURCE1_PATH, 'r:gz') as tar:
             tar.extractall(SOLVE_FILES_PATH)
         print(f'[+] Extraction of file {RESOURCE1_PATH} successful')
