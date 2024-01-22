@@ -6,14 +6,15 @@
 import gzip
 import shutil
 import os
+import re
 from scapy.all import *
-import os
 import subprocess
 import random
 import requests
 from tqdm import tqdm
 
-resource_url = "https://cdn.2024.irisc.tf/investigator-alligator.gz"
+RESOURCE_PRIMARY_URL = "https://cdn.2024.irisc.tf/investigator-alligator.gz"
+RESOURCE_BACKUP_URL = "https://shawndxyz.sjc1.vultrobjects.com/ctf/2024.irisctf/investigator-alligator.gz"
 
 input_file = "./recurso/investigator-alligator.gz"
 output_dir = "./solve"
@@ -52,12 +53,12 @@ if not os.path.exists(input_file):
         # Create the 'recurso' directory if it doesn't exist
         os.makedirs(os.path.dirname(input_file), exist_ok=True)
         
-        # Download the file
-        print(f"[+] Downloading file {input_file} from {resource_url}")
-        # Download the file with tqdm for progress bar
-        response = requests.get(resource_url, stream=True)
+        # Download the file from the primary URL
+        print(f"[+] Downloading file {input_file} from {RESOURCE_PRIMARY_URL}")
+        response = requests.get(RESOURCE_PRIMARY_URL, stream=True)
         total_size = int(response.headers.get('content-length', 0))
 
+        # Download the file with tqdm for progress bar
         with open(input_file, "wb") as file, tqdm(
             desc="Downloading",
             total=total_size,
@@ -70,8 +71,31 @@ if not os.path.exists(input_file):
                 file.write(data)
         
         print(f"[+] File downloaded to {input_file}")
-    except Exception as e:
-        print(f"[-] Failed to download the file. Error: {e}")
+    except requests.exceptions.RequestException as primary_err:
+        print(f"[-] Failed to download the file from the primary URL: {primary_err}")
+
+        # If the primary URL download fails, try the backup URL
+        try:
+            # Download the file from the backup URL
+            print(f"[+] Downloading file {input_file} from backup URL: {RESOURCE_BACKUP_URL}")
+            response = requests.get(RESOURCE_BACKUP_URL, stream=True)
+            total_size = int(response.headers.get('content-length', 0))
+
+            # Download the file with tqdm for progress bar
+            with open(input_file, "wb") as file, tqdm(
+                desc="Downloading",
+                total=total_size,
+                unit="B",
+                unit_scale=True,
+                unit_divisor=1024,
+            ) as bar:
+                for data in response.iter_content(chunk_size=1024):
+                    bar.update(len(data))
+                    file.write(data)
+            
+            print(f"[+] File downloaded to {input_file} (from backup URL)")
+        except requests.exceptions.RequestException as backup_err:
+            print(f"[-] Failed to download the file from the backup URL: {backup_err}")
 else:
     print(f"[+] The file {input_file} already exists. Skipping download")
 
