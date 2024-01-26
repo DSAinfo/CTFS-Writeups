@@ -55,5 +55,7 @@ A simple vista veo el formato de la flag dividido en varias líneas. 6ES7 151-8A
 
 Si tomamos todas las líneas que tienen el formato **nro:texto** y las ordenamos por el número que llevan obtenemos la flag.
 
+![PLC I Success](../images/plc1-result.png)
+
 ### Flag
 MAPNA{y0U_sHOuLd_4lW4yS__CaR3__PaADd1n9!!}
