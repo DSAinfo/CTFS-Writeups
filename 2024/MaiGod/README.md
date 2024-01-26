@@ -11,3 +11,5 @@ Durante el evento se resolvieron 3 retos:
 - PLC I (Forensics)
 - Tampered (Forensics)
 - What next? (Cryptography)
+
+Todas las flags, a no ser que se especifique lo contrario, tienen el formato **MAPNA{[0-9a-zA-Z_-]+.!?|}**. Por ejemplo: MAPNA{_some_l33t_string_l1k3_7hi5_}
