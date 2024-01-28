@@ -7,7 +7,7 @@ El enunciado dice que el equipo de MAPNA CERT identificó una intrusión al PLC 
 ## Resolución
 
 Al ejecutar el comando strings sobre el recurso obtuve lo siguiente:
-```
+```bash
 strings plc.pcap
 4-"@
 (-#@

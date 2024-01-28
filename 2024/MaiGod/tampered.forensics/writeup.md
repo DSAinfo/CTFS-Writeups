@@ -8,7 +8,7 @@ Lo primero que hice fue abrir el archivo flags.txt para ver si a simple vista po
 
 Ejecute el comando file para ver si quizas el archivo era algo más que texto plano y note algo extraño:
 
-```
+```bash
 file flags.txt 
 flags.txt: ASCII text, with CRLF, CR line terminators
 ```
@@ -17,7 +17,7 @@ El archivo esta separado por dos tipos distintos de line-endings: CR/LF (Windows
 
 Si usamos el comando cat -A sobre el archivo de texto el carriage return (CR) aparece representado como ^M, y el line feed (LF) aparece como $. Entonces podemos buscar la linea que esta usando CRLF de la siguiente forma: 
 
-```
+```bash
 cat -A flags.txt | grep 'MAPNA{.*}\^M\$'
 MAPNA{Tx,D51otN\eUf7qQ7>ToSYQ\;5P6jTIHH#6TL+uv}^M$
 ```
