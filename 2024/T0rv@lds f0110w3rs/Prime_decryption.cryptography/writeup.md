@@ -2,6 +2,14 @@
 ## URL
 https://ctf.shaastractf2024.online/challenges#Prime%20Decryption-33
 
+## Requerimientos
+El script requiere la librería sympy.  
+
+La instalación de requerimientos se realiza con el siguiente comando:  
+```
+pip install -r requirements.txt
+```
+
 ## Writeup
 En este desafío se nos proporciona una **clave pública** la cual es: `14537813, 5`
 y un **mensaje encriptado** en un archivo txt que tiene una lista de números, donde cada número representa una letra del mensaje.  
