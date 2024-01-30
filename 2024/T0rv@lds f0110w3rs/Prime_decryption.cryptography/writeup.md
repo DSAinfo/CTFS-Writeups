@@ -3,7 +3,7 @@
 https://ctf.shaastractf2024.online/challenges#Prime%20Decryption-33
 
 ## Requerimientos
-El script requiere la librería sympy.  
+El script requiere la librería **sympy**.  
 
 La instalación de requerimientos se realiza con el siguiente comando:  
 ```
