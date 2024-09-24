@@ -1,1 +1,1 @@
-strings forgotten-message | grep "LITCTF"
+strings ./resources/forgotten-message | grep "LITCTF"
