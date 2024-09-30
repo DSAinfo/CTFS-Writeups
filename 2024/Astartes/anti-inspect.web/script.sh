@@ -1,0 +1,1 @@
+curl "http://litctf.org:31779/" -s | grep -oP "LITCTF{[^}]+}" | sed 's/%c//g'
