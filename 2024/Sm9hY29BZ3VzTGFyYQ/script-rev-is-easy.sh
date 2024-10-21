@@ -1,0 +1,1 @@
+strings jajajajajajja | grep "CM{"
