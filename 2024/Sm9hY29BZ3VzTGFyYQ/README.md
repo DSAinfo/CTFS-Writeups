@@ -8,3 +8,9 @@ Todos los CTFs resueltos se encuentran en http://edition1.ctf.cybermaterial.com/
 2. Drunken website (Web)
 
 3. Rev is easy! (Reverse Engineering)
+
+Agregamos 2 CTFs resueltos el 17 de diciembre de 2024, se encuentran en https://ctfhn.unitec.edu/challenges
+
+4. Static web site (web)
+
+5. Say hello from the other side (web)
