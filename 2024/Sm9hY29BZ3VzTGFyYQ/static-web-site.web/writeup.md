@@ -1,0 +1,3 @@
+Este reto consiste en encontrar una flag oculta en un archivo CSS de una página web. El script en Bash realiza lo siguiente: primero obtiene los enlaces a los archivos CSS desde la página principal usando curl, grep y awk. Luego, verifica si las URLs son relativas o absolutas, y si son relativas, las convierte en absolutas. Después, descarga cada archivo CSS y busca la flag dentro de los comentarios usando grep. Si encuentra la flag, la muestra y termina; si no, informa que no la encontró. Con este enfoque automatizamos la búsqueda en los archivos CSS hasta encontrar la flag.
+
+flag{hidden_with_style}
