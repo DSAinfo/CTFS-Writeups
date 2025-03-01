@@ -13,8 +13,9 @@ Revela el código perdido de los samuráis y desbloquea el misterio oculto dentr
 1. Descargamos el archivo files.zip
 2. Extraemos el contenido usando unzip recurso/files.zip -d extract
 3. Cambiamos al directorio donde están los archivos con cd extract/ctf/files.
-4. Se examinó el archivo sam.jpg con strings sam.jpg y se pudo encontrar una secuencia de datos extraños:
+4. Se examinó el archivo sam.jpg con strings sam.jpg y se pudo encontrar una secuencia de datos extraños al final del archivo:
    ++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>>++++.++++++++++++..----.+++.<------------.-----------..>---------------.++++++++++++++.---------.+++++++++++++.-----------------.<-.>++.++++++++..--------.+++++.-------.<.>--.++++++++++++.--.<+.>-------.+++.+++.-------.<.>-.<.++.+++++++++++++++++++++++++.+++++++++++++.>+++++++++++++.<+++++++++++++.----------------------------------.++++++++.>+++++++++.-------------------.<+++++++.>+.<-----.+++++++++.------------.<+++++++++++++++.>>++++++++++++++++.<+++.++++++++.>-.<--------.---------.++++++++++++++++++++.>.<++.>--------------.<<+++++.>.>-----.+++++++.<<++.>--.<++.---------.++.>>+++++++++++.-------------.----.++++++++++++++++++.<<++++++++++++++++.>>--.--.---.<<--.>>+++.-----------.-------.+++++++++++++++++.---------.+++++.-------.
+
    Estos datos seguían un patrón parecido al de un código Brainfuck.
 6. 
 ..
