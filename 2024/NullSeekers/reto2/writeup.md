@@ -1,20 +1,24 @@
 # TP FINAL FORENSIA 2024
 
-Desafio forensia: “TITULO”. URL: [ACE CTF](url)
+Desafio forensia: “Samurai's Code”. URL: [Apoorv CTF](https://apoorvctf.iiitkottayam.ac.in/challenges#Samurai%E2%80%99s%20Code-26)
 
-### **Writeup Completo: Titulo**
+### **Writeup Completo: Samurai's Code**
 
 #### **Desafío:**
 
-Descripcion del challenge en espanol
+Revela el código perdido de los samuráis y desbloquea el misterio oculto dentro.
 
 #### **Pasos:**
 
-1. aa
-2. aa
-..
+1. Descargamos el archivo files.zip
+2. Extraemos el contenido usando unzip recurso/files.zip -d extract
+3. Cambiamos al directorio donde están los archivos con cd extract/ctf/files.
+4. Se examinó el archivo sam.jpg con strings sam.jpg y se pudo encontrar una secuencia de datos extraños:
+   ++++++++++[>+>+++>+++++++>++++++++++<<<<-]>>>>++++.++++++++++++..----.+++.<------------.-----------..>---------------.++++++++++++++.---------.+++++++++++++.-----------------.<-.>++.++++++++..--------.+++++.-------.<.>--.++++++++++++.--.<+.>-------.+++.+++.-------.<.>-.<.++.+++++++++++++++++++++++++.+++++++++++++.>+++++++++++++.<+++++++++++++.----------------------------------.++++++++.>+++++++++.-------------------.<+++++++.>+.<-----.+++++++++.------------.<+++++++++++++++.>>++++++++++++++++.<+++.++++++++.>-.<--------.---------.++++++++++++++++++++.>.<++.>--------------.<<+++++.>.>-----.+++++++.<<++.>--.<++.---------.++.>>+++++++++++.-------------.----.++++++++++++++++++.<<++++++++++++++++.>>--.--.---.<<--.>>+++.-----------.-------.+++++++++++++++++.---------.+++++.-------.
+   Estos datos seguían un patrón parecido al de un código Brainfuck.
+6. 
 ..
 
 
 #### **Flag obtenida::**
-example{example}
+apoorvctf{ByT3s_0UT_0F_0Rd3R}
