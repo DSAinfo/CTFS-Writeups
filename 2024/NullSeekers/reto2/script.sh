@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Se descomprime el archivo files.zip y nos movemos al directorio files
-unzip files.zip
+unzip recurso/files.zip
 cd files
 
 # Se hace strings sobre el archivo sam.jpg, se toma la línea 12824 del resultado de strings (que de la lectura previa se sabe que posee el código Brainfuck) y se guarda en encrypted.txt
