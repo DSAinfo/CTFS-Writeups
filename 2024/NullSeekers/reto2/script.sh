@@ -10,7 +10,7 @@ strings sam.jpg | sed -n '12824p' > encrypted.txt
 
 # Se ejecuta brainfuck.py (script para traducir Brainfuck, ya que no se encontró una herramienta para usar vía CLI) pasando encrypted.txt como parámetro
 # Movimos el script brainfuck.py al directorio de trabajo usando el comando mv y find para buscarlo:
-mv $(find / -name "brainfuck.py" 2>/dev/null | head -n 1)
+mv $(find / -name "brainfuck.py" 2>/dev/null | head -n 1) .
 python3 brainfuck.py encrypted.txt > link_drive.txt
 
 # Se obtiene el enlace de descarga desde el txt para poder descargar el archivo
