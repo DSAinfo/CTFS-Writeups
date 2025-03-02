@@ -16,7 +16,7 @@ python3 brainfuck.py encrypted.txt > link_drive.txt
 # Se obtiene el enlace de descarga desde el txt para poder descargar el archivo
 download_url=$(cat link_drive.txt)
 
-# Como usando directamente el link obtenido, lo que se descarga es el HTML del Drive, se pidió una ayudita a ChatGPT para ver cómo descargarlo exitosamente
+# Como usando directamente el link obtenido, lo que se descarga es el HTML del Drive
 # Para eso, se extrae el ID del archivo de Google Drive del enlace y se arma un nuevo enlace para descarga directa
 file_id=$(echo "$download_url" | grep -oP 'file/d/(\K[^/]+)')
 drive_download_url="https://drive.google.com/uc?export=download&id=$file_id"

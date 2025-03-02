@@ -22,7 +22,7 @@ def brainfuck_interpreter(code):
         elif command == '.':
             output.append(chr(memory[pointer]))  # Imprime el carácter correspondiente al valor ASCII
         elif command == ',':
-            # Este código no maneja la entrada (por lo que se omite por ahora)
+            # Este código no maneja la entrada
             pass
         elif command == '[':
             # Si el valor en la celda es cero, saltar al final del bucle
@@ -55,7 +55,6 @@ def ejecutar_brainfuck(texto_brainfuck):
     return result
 
 
-# Código que maneja los argumentos de la línea de comandos
 if __name__ == "__main__":
     if len(sys.argv) != 2:
         # Si no hay argumento, leer de stdin (como un archivo o desde un pipe)
@@ -73,6 +72,5 @@ if __name__ == "__main__":
             print(f"Error al leer el archivo: {e}")
             sys.exit(1)
 
-    # Ejecutar el código Brainfuck y mostrar el resultado
     resultado = ejecutar_brainfuck(codigo_brainfuck)
     print(resultado)
