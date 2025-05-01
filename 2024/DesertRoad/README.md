@@ -7,7 +7,7 @@
 
 ## Alumno
 - Nombre: Adriel Reverte. Legajo: 02614/1
-- Asignatura cursada: Desarrollo Seguro De Aplicaciones - 2024
+- Materia cursada: Desarrollo Seguro De Aplicaciones - 2024
 
 ## Write Ups
 
