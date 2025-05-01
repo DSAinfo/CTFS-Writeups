@@ -63,7 +63,9 @@ El plaintext es enviado al servidor remoto para recibir los ciphertexts. Tambié
 
 
 Luego teniendo en cuenta la estructura del modo CTR:
+
 ![ctrmode.png](./images/ctrmode.png)
+
 
 Por cada ciphertext recibido (exceptuando el de la flag), se realiza un XOR con el plaintext seleccionado, los que nos da el ciphertext del nonce.
 Con el ciphertext de cada uno de los nonce, se realiza un XOR con la flag encriptada, hasta encontrar el formato de la flag.
