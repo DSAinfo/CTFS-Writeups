@@ -7,7 +7,7 @@ El ejercicio nos presenta con la siguiente pagina:
 ![shanahme1.png](./images/shahname1.png)
 
 
-Que al analizar el source code de los scripts de Javascript del mismo se puede encontrar una variable que no es sanitizada antes de ser utilizada 
+Que al analizar el source code de los scripts de Javascript del mismo se puede encontrar una variable que no es sanitizada antes de ser utilizada.
 
 ![shanahme2.png](./images/shahname2.png)
 
