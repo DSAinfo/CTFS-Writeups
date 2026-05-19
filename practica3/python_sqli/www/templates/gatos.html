@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    	<title>Gatolandia</title>
+    	<link rel="stylesheet" href="/static/css/level1.css">
+    	<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    </head>
+    <body>
+    	<div align="center">
+			<p style="font-family:'Perpetua'"><font size="50px" color=black>Gatolandia</font></p>
+		</div>
+		    <div align="center" class="submit">
+		        <form action="{{ url_for('nivel1') }}" method="GET">
+		            <input name="numero" placeholder="Ingresar id" id="numero" required>
+		            <p></p>
+		            <input type="submit" value="Submit">
+		            <p></p>
+		        </form>
+	        </div>
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col" class="table-danger"><div align="center">Id</div></th>
+		      <th scope="col" class="table-danger"><div align="center">Nombre</div></th>
+		      <th scope="col" class="table-danger"><div align="center">Personalidad</div></th>
+		      <th scope="col" class="table-danger"><div align="center">Nivel</div></th>
+		      <th scope="col" class="table-danger"><div align="center">Foto</div></th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		            {% for v in value %}
+		               <tr>
+		                  <td class="table-warning"><div align="center">{{ v.id }}</div></td>
+		                  <td class="table-warning"><div align="center">{{ v.nombre }}</div></td>
+		                  <td class="table-warning"><div align="center">{{ v.personalidad }}</div></td>
+		                  <td class="table-warning"><div align="center">{{ v.nivel }}</div></td>
+		                  <td class="table-success"><div align="center"><img src="data:image/jpeg;base64,{{ v.foto }}" width="65" height="50" /></div></td>
+		               </tr>
+		            {% endfor %}
+
+
+		</tbody>
+
+		</table>
+    </body>
+</html>
+<!-- asd -->

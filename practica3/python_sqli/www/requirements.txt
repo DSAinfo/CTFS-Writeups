@@ -1,0 +1,5 @@
+mysqlclient
+Flask
+sqlalchemy
+pytest
+https://dev.mysql.com/get/Downloads/Connector-Python/mysql-connector-python-2.1.7.tar.gz

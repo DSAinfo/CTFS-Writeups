@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultados de búsqueda</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.7.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-4">Resultados de búsqueda</h1>
+        <p class="mt-4">Resultados para '{{ query | safe}}':</p>
+        <div class="row">
+            {% for result in results %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="{{ result.image }}" class="card-img-top" alt="Imagen de la película">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ result.title }}</h5>
+                            <p class="card-text">Descripción de la película</p>
+                            <a href="#" class="btn btn-primary">Ver detalles</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.7.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

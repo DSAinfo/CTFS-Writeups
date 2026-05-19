@@ -1,0 +1,35 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+	<title>Chequeador de Ping Online! </title>
+	<link rel="stylesheet" href="static/css/bootstrap.min.css">
+
+</head>
+
+<body class="body-bg">
+<main>
+    <div class="slider-area ">
+  	<div align="center">
+			<p style="font-family:'Perpetua'"><font size="50px" color=black>Chequeador de Ping</font></p>
+		</div>
+
+
+
+		    <div align="center" class="submit">
+            Ingresá una IP para que nosotros le hagamos ping :)
+		        <form action="{{ url_for('index') }}" method="POST">
+		            <input name="ip" placeholder="Ingresar IP" id="ip" required>
+		            <p></p>
+		            <input type="submit" value="Submit">
+		            <p></p>
+		        </form>
+                {% if result %}
+                    <div>Resultado:</div>
+                    <pre>{{ result }}</pre>
+                {% endif %}
+	        </div>
+</main>
+
+    </body>
+</html>
+
