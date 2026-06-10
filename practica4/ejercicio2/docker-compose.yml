@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+
+  joomla:
+    image: vulhub/joomla:3.7.0
+    restart: always
+    links:
+      - db
+    depends_on:
+      - db
+    ports:
+      - 14002:80
+    environment:
+      JOOMLA_DB_HOST: db
+      JOOMLA_DB_PASSWORD: example
+
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: joomla

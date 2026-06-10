@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+{% if session['logged_in'] %}
+   flag{Brut3f0rc1ng}
+
+	{% if data %}
+		<h3>{{data}}</h3>
+	{% endif %}
+
+	<a href="/logout">Logout</a> <br> <br>
+
+{% else %}
+<p>Usuario no autenticado</p>
+
+<a href="/login">Login</a> 
+
+{% endif %}
+{% endblock %}
