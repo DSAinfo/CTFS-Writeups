@@ -1,8 +1,9 @@
-version: "3.9"
+version: '3.8'
+
 services:
-  vulnerable-app:
+  reto-ctf-sqli:
     build: .
+    container_name: ctf_sqli_container
     ports:
-      - "5000:5000"
-    volumes:
-      - .:/app
+      - "8080:5000"
+    restart: always
