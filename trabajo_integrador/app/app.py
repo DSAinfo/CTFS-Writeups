@@ -16,7 +16,7 @@ def init_db():
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            username TEXT NOT EXISTS,
+            username TEXT ,
             role TEXT,
             secret_flag TEXT
         )

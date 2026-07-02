@@ -1,10 +1,20 @@
-FROM python:3.10-slim
+FROM python:3.11-slim
+
+# Evita que Python guarde configuraciones en el contenedor 
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-COPY requirements.txt .
+# Instalamos las librerías necesarias
+COPY requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+# Copiamos la app
+COPY app/ /app/
 
-CMD ["python", "app/routes.py"]
+# Exponemos el puerto de la aplicación
+EXPOSE 5000
+
+# Iniciamos el servidor de Python
+CMD ["python", "app.py"]

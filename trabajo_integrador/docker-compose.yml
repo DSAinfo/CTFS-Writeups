@@ -5,5 +5,5 @@ services:
     build: .
     container_name: ctf_sqli_container
     ports:
-      - "8080:5000"
+      - "33333:5000"
     restart: always
