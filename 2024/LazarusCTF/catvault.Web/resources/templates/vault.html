@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}catvault{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>{{ username }}'s vault</h1>
+  <form method="post" action="{{ url_for('vault') }}">
+    <label for="content">stash a new secret</label>
+    <textarea id="content" name="content" maxlength="2000" placeholder="meow meow mrrp mreowww nyaaa"></textarea>
+    <button type="submit">save</button>
+  </form>
+</div>
+
+<div class="card">
+  <h1 style="font-size:1.1rem;">stored secrets</h1>
+  <p class="sub">it's impawssible for anyone else to see your vault</p>
+  {% if entries %}
+    {% for id, content in entries %}
+      <div class="entry">
+        <div class="id">#{{ id }}</div>
+        <div>{{ content }}</div>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p class="muted">nothing to see here...</p>
+  {% endif %}
+</div>
+{% endblock %}

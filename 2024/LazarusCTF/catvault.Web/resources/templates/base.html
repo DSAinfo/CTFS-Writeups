@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en" data-theme="{{ theme|default('light') }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}catvault{% endblock %}</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%B1%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --bg: #f4f1ea; --card: #fffdf8; --ink: #2b2622; --muted: #8a7f74;
+      --accent: #e0803a; --accent-ink: #fff; --border: #e6ddd0; --ok: #3a8a55; --err: #c0473a;
+    }
+    html[data-theme="dark"] {
+      --bg: #1a1714; --card: #251f1a; --ink: #f0e9df; --muted: #a8998a;
+      --accent: #e0803a; --accent-ink: #1a1714; --border: #3a322b; --ok: #6fce8f; --err: #ef7a6d;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: ui-rounded, "Segoe UI", system-ui, sans-serif;
+      background: var(--bg); color: var(--ink); line-height: 1.5;
+    }
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 24px; border-bottom: 1px solid var(--border); background: var(--card);
+    }
+    header .brand { font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; }
+    header .brand span { color: var(--accent); }
+    header nav { display: flex; gap: 12px; align-items: center; }
+    main { max-width: 680px; margin: 0 auto; padding: 32px 24px; }
+    .card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+      padding: 24px; margin-bottom: 20px;
+    }
+    h1 { margin: 0 0 4px; font-size: 1.5rem; letter-spacing: -0.02em; }
+    .sub { color: var(--muted); margin: 0 0 20px; }
+    label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 6px; }
+    input[type=text], input[type=password], textarea {
+      width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: 10px;
+      background: var(--bg); color: var(--ink); font: inherit; margin-bottom: 16px;
+    }
+    textarea { resize: vertical; min-height: 70px; }
+    button, .btn {
+      font: inherit; font-weight: 600; cursor: pointer; border: none; border-radius: 10px;
+      padding: 10px 18px; background: var(--accent); color: var(--accent-ink);
+    }
+    button.ghost, .btn.ghost {
+      background: transparent; color: var(--ink); border: 1px solid var(--border);
+    }
+    a { color: var(--accent); text-decoration: none; }
+    .flash { padding: 10px 14px; border-radius: 10px; margin-bottom: 16px; font-size: 0.9rem; }
+    .flash.ok { background: color-mix(in srgb, var(--ok) 15%, transparent); color: var(--ok); }
+    .flash.error { background: color-mix(in srgb, var(--err) 15%, transparent); color: var(--err); }
+    .entry {
+      border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px;
+      margin-bottom: 10px; background: var(--bg); word-break: break-word;
+    }
+    .entry .id { color: var(--muted); font-size: 0.75rem; font-variant-numeric: tabular-nums; }
+    .muted { color: var(--muted); font-size: 0.85rem; }
+    form.inline { display: inline; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">🐾 cat<span>vault</span></div>
+    <nav>
+      {% if session.get('username') %}
+        <span class="muted">{{ session['username'] }}</span>
+        <button class="ghost" id="theme-toggle" type="button">◐ theme</button>
+        <form class="inline" method="post" action="{{ url_for('logout') }}">
+          <button class="ghost" type="submit">log out</button>
+        </form>
+      {% endif %}
+    </nav>
+  </header>
+  <main>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}
+        <div class="flash {{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+  <script>
+    const toggle = document.getElementById("theme-toggle");
+    if (toggle) {
+      toggle.addEventListener("click", async () => {
+        const root = document.documentElement;
+        const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        await fetch("/api/settings", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ theme: next }),
+        });
+      });
+    }
+  </script>
+</body>
+</html>
