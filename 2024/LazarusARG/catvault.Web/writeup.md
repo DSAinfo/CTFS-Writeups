@@ -2,8 +2,6 @@
 
 ## Introducción
 
-https://ctf.l3ak.team/challenges?challenge=web_catvault+-+part+1
-
 El objetivo del challenge **CatVault** es acceder al secreto almacenado por el usuario administrador y recuperar la flag.
 
 La aplicación permite registrarse, iniciar sesión y guardar secretos dentro de una bóveda personal. La vulnerabilidad aparece porque el valor `user_id` de la sesión puede modificarse mediante el endpoint `/api/settings` y luego es utilizado de forma insegura al consultar los secretos de la bóveda.
