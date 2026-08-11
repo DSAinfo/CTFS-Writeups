@@ -10,8 +10,8 @@
 
 Los writeups de esta carpeta corresponden a los siguientes CTF:
 
-- **Proxy**, desarrollado entre **1/1/2026** y **31/12/2026**, cuya página de referencia se encuentra en **https://ctf.hackthebox.com/event/1434**.
+- **Proxy**, vigente entre **1/1/2026** y **31/12/2026**, cuya página de referencia se encuentra en **https://ctf.hackthebox.com/event/1434**.
 
-- **Guild**, desarrollado entre **1/1/2026** y **31/12/2026**, cuya página de referencia se encuentra en **https://ctf.hackthebox.com/event/1434**.
+- **Guild**, vigente entre **1/1/2026** y **31/12/2026**, cuya página de referencia se encuentra en **https://ctf.hackthebox.com/event/1434**.
 
-- **CatVault**, desarrollado entre **31/7/2026** y **2/8/2026**, cuya página de referencia se encuentra en **https://ctf.l3ak.team/challenges**.
+- **CatVault**, vigente entre **31/7/2026** y **2/8/2026**, cuya página de referencia se encuentra en **https://ctf.l3ak.team/challenges**.
