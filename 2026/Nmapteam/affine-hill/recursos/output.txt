@@ -1,0 +1,3 @@
+Padded plaintext: b3w4reofbugs1ntheab0vec0de-ih4ve0nlyprov3ditc0rrectnottr13dit---
+Ciphertext with key 1: x3etd0vgd7z9v6bld4ba7p94s0acp-bvfjjfywypdkzuwsgah4shanrdaop4
+Ciphertext with key 2: odbewk453xyc3210-mlqxley8loydmzgy0k6ok4i9qjcwx42om5au1-hqqkr
