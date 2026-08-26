@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}catvault{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>log in</h1>
+  <form method="post" action="{{ url_for('login') }}">
+    <label for="username">username</label>
+    <input type="text" id="username" name="username" autocomplete="username" autofocus>
+    <label for="password">password</label>
+    <input type="password" id="password" name="password" autocomplete="current-password">
+    <button type="submit">meow</button>
+  </form>
+  <p class="muted"><a href="{{ url_for('register') }}">mrrp an account</a></p>
+</div>
+
+{% endblock %}
