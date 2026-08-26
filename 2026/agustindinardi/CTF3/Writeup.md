@@ -1,7 +1,7 @@
 # Enhancing Disk Image Analysis - Writeup
 
 ## 1. Información del desafío
-- **CTF:** picoCTF 2022 / picoCTF 2024
+- **CTF:** picoCTF 2026
 - **Challenge:** Enhancing Disk Image Analysis (o equivalente de imagen de disco)
 - **Categoría:** Forensics
 - **Dificultad:** Medium
@@ -75,17 +75,17 @@ Insertando la cadena dentro del formato `picoCTF{...}`, se obtuvo la flag defini
 
 ---
 
-## 7. Vulnerabilidades y malas prácticas identificadas
+## 6. Vulnerabilidades y malas prácticas identificadas
 
-### 7.1. Persistencia de datos sensibles en el historial de Git
+### 6.1. Persistencia de datos sensibles en el historial de Git
 El desarrollador eliminó o modificó la flag en el archivo de trabajo principal, pero no limpió el historial de commits del repositorio `.git`. Los metadatos de Git preservan todos los estados anteriores de los archivos.
 
-### 7.2. Almacenamiento no cifrado en disco
+### 6.2. Almacenamiento no cifrado en disco
 El sistema de archivos de la imagen de disco no contaba con cifrado de volumen (como LUKS). Esto permitió que cualquier analista forense con acceso a la imagen pudiera inspeccionar los archivos del usuario y las estructuras del sistema sin restricciones.
 
 ---
 
-## 8. Resumen de la resolución
+## 7. Resumen de la resolución
 
 ```
                disk.img
@@ -115,5 +115,5 @@ picoCTF{g17_1n_7h3_d15k_041217d8}
 
 ---
 
-## 9. Conclusión
+## 8. Conclusión
 El desafío se resolvió aplicando técnicas estándar de análisis forense digital sobre imágenes de disco. La identificación de artefactos del sistema de archivos permitió localizar un repositorio Git expuesto. El análisis de los metadatos y registros de commits del repositorio reveló la presencia de información sensible que había sido eliminada del entorno de trabajo visible, permitiendo la reconstrucción exitosa de la flag.

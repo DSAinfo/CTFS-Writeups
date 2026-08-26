@@ -8,7 +8,7 @@ def solve():
     with open(resource_path, 'r', encoding='utf-8') as f:
         ciphertext = f.read().strip()
 
-    # Mapeo de sustitucion completo
+    # Mapeo de sustitucion
 
     substitution_map = {
         # Minusculas
