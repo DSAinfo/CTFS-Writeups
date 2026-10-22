@@ -1,0 +1,11 @@
+{
+  "architectures": [
+    "DistilBertForSequenceClassification"
+  ],
+  "model_type": "distilbert",
+  "num_labels": 2,
+  "id2label": {
+    "0": "negative",
+    "1": "positive"
+  }
+}

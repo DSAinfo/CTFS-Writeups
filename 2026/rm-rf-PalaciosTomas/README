@@ -1,0 +1,32 @@
+# Trabajo Práctico Final — Participación en CTF
+**Asignatura:** Desarrollo Seguro de Aplicaciones (2026)  
+**Estudiante:** Tomas Agustin Palacios
+**Repositorio:** [DSAinfo/CTFS-Writeups](https://github.com/DSAinfo/CTFS-Writeups)
+
+---
+
+## Descripción General
+Este repositorio contiene la documentación y resolución técnica de los desafíos de seguridad evaluados para la aprobación del Final de la materia. Las soluciones abarcan análisis de vulnerabilidades web, bypass de políticas de caché, inyecciones en componentes de Machine Learning, cadenas de confianza en agentes de IA, ataques a APIs de GraphQL y criptografía clásica.
+
+---
+
+## Retos Resueltos
+
+| # | Nombre del Reto | CTF / Plataforma | Categoría | Dificultad | Carpeta de la Entrega |
+|---|---|---|---|---|---|
+| 1 | **Cámara de eco** | H7CTF 2026 | Web / Prompt Injection | Media | [`./camara-de-eco/`](./camara-de-eco/) |
+| 2 | **Autopsia de paquete modelo** | H7CTF 2026 | Seguridad de Software / ML | Media | [`./autopsia-paquete-modelo/`](./autopsia-paquete-modelo/) |
+| 3 | **Cartas nunca enviadas (Letters Never Sent)** | Pointer Overflow CTF 2026 | Criptografía | Media | [`./cartas-nunca-enviadas/`](./cartas-nunca-enviadas/) |
+| 4 | **Poisoned Well** | Pointer Overflow CTF 2026 | Web / Caché | Fácil / Media (97 pts) | [`./poisoned-well/`](./poisoned-well/) |
+| 5 | **La forma de la consulta (The Shape of a Query)** | Pointer Overflow CTF 2026 | Web / GraphQL | Fácil / Media (97 pts) | [`./shape-of-query/`](./shape-of-query/) |
+
+---
+
+## Estructura de la Entrega
+
+Cada carpeta incluye:
+- `writeup.md`: Contiene todos los detalles técnicos,el análisis, la explotación y las conclusiones de seguridad.
+- `script.py/`: Los scripts de automatización o decodificación utilizados (si aplica).
+- `capturas de pantalla/`: Capturas de pantalla o evidencias complementarias.
+
+---
