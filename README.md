@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Readme
 
 Ejercicios de la práctica 2 de DSA.
@@ -8,3 +9,6 @@ Ejecutar con:
 ```
 docker-compose up
 ```
+=======
+# CTFS-Writeups
+>>>>>>> upstream/main
