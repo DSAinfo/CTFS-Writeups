@@ -1,0 +1,220 @@
+@font-face {
+  font-family: Travel;
+  src: url('./fonts/light.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Travel;
+  src: url('./fonts/medium.woff') format('woff');
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --font: Travel, Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --heading-xl: 3rem;
+  --heading-lg: 2.25rem;
+  --heading-sm: 1.5rem;
+  --heading-xs: 1.3125rem;
+  --heading-2xs: 1.125rem;
+  --heading-weight: 500;
+  --heading-line: 1.3;
+  --body-md: 1.125rem;
+  --body-sm: 1rem;
+  --body-line: 1.5;
+  --text: #1f2c3d;
+  --text-subtle: #545e6b;
+  --border: #d7dade;
+  --surface: #fff;
+  --page: #f4f4f2;
+  --base: #1e2b3c;
+
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--page);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: var(--body-md);
+  font-weight: 400;
+  line-height: var(--body-line);
+  letter-spacing: normal;
+}
+
+h1 {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  font-weight: 500;
+}
+
+h2 {
+  font-weight: var(--heading-weight);
+  line-height: var(--heading-line);
+  letter-spacing: normal;
+  text-wrap: balance;
+}
+
+button,
+input {
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+main {
+  width: min(100%, 46rem);
+  min-height: 100vh;
+  margin: auto;
+  padding: 4rem 2rem 0;
+  background: var(--surface);
+}
+
+main > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 0 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+main > header h1 {
+  margin: 0;
+  font-size: clamp(var(--heading-lg), 8vw, var(--heading-xl));
+}
+
+main > section:first-of-type {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+main > section:first-of-type h2 {
+  margin: 0 0 1rem;
+  font-size: var(--heading-sm);
+}
+
+main > section:first-of-type p {
+  margin: 0 0 0.5rem;
+  color: var(--text-subtle);
+  font-size: var(--body-md);
+}
+
+main > section:first-of-type strong {
+  color: var(--text);
+  font-size: var(--heading-xs);
+  font-weight: var(--heading-weight);
+  font-variant-numeric: tabular-nums;
+}
+
+main > section:last-of-type {
+  padding: 3rem 1rem 0 0;
+  text-align: left;
+}
+
+main > section:last-of-type > h2 {
+  margin: 0 0 2rem;
+  font-size: var(--heading-2xs);
+}
+
+main > section:last-of-type > p {
+  margin: 1rem 0 4rem;
+  color: var(--text-subtle);
+  font-size: var(--body-sm);
+}
+
+main > section:last-of-type > div {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+main > section:last-of-type > div h2 {
+  margin: 0 0 2rem;
+  font-size: var(--heading-2xs);
+}
+
+main > section:last-of-type > div > p {
+  margin: 0;
+  padding: 0.5vh;
+  color: var(--text-subtle);
+  font-size: var(--body-sm);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  padding: 2rem 1rem;
+}
+
+form > * {
+  width: fit-content;
+}
+
+form > label {
+  color: var(--text-subtle);
+  font-size: var(--body-sm);
+}
+
+form > input {
+  text-transform: uppercase;
+}
+
+form > div {
+  display: flex;
+  flex-direction: row;
+  place-content: space-between;
+  width: 100%;
+  height: fit-content;
+}
+
+form > div > p {
+  margin: 0;
+  color: tomato;
+}
+
+button {
+  display: inline-flex;
+  justify-content: center;
+  padding: 0.85rem 1.15rem;
+  border: 1px solid var(--base);
+  border-radius: 0.5rem;
+  color: var(--surface);
+  background: var(--base);
+  font-size: var(--body-sm);
+  font-weight: 500;
+  line-height: var(--heading-line);
+  cursor: pointer;
+}
+
+.truncate {
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

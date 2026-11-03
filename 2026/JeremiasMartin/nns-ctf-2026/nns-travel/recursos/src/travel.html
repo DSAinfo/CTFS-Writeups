@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>NNS Air Travel Agency</title>
+    <link rel="preload" as="font" type="font/woff" href="./static/fonts/light.woff" crossorigin />
+    <link rel="preload" as="font" type="font/woff" href="./static/fonts/medium.woff" crossorigin />
+    <link rel="stylesheet" href="./static/style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>NNS Air <strong>Travel Agency</strong></h1>
+      </header>
+      <section>
+        <h2 class="truncate">Authenticated</h2>
+        <p>On behalf of <strong class="truncate" id="team">someone</strong>.</p>
+      </section>
+      <section>
+        <h2>My upcoming trips</h2>
+        <p>There are no found trips associated with your NNS Air Travel Agency account.</p>
+
+        <div>
+          <h2>Add trip</h2>
+          <p>
+            When booking a trip directly in our web interface, the trip should automatically be added to your account.
+            If the trip has been booked by someone else, or with one of our booking agents, add the trip manually by
+            entering the booking reference.
+          </p>
+          <form>
+            <label for="ticket-id">Booking Reference</label>
+            <input type="text" id="ticket-id" name="ticket-id" placeholder="ABCDEF" maxlength="6" minlength="6" />
+            <div>
+              <button>Add</button>
+              <p></p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <script>
+      fetch('/meta').then((r) => {
+        r.json().then((v) => {
+          document.querySelector('#team').textContent = v.team;
+        });
+      });
+
+      document.querySelector('form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const ticketId = document.querySelector('input').value.toUpperCase();
+        const errElm = document.querySelector('form > div > p');
+
+        try {
+          const req = await fetch(`get-file?pnr=${ticketId}.json`, { method: 'POST' });
+
+          if (req.status !== 200) {
+            const json = await req.json();
+
+            if (!json.ok) {
+              errElm.textContent = json.error;
+            }
+          } else {
+            errElm.textContent = 'Your ticket has been found.';
+          }
+        } catch {
+          errElm.textContent = 'Unexpected error. Please contact support.';
+        }
+      });
+    </script>
+  </body>
+</html>
