@@ -1,4 +1,0 @@
-Flask
-Flask_Login
-Flask_SQLAlchemy
-Werkzeug

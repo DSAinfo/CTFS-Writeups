@@ -1,1 +1,0 @@
-curl -s https://ctf.cybermaterial.com/robots.txt | grep 'CM{'

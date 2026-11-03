@@ -1,6 +1,0 @@
-services:
-  app:
-    build: .
-    ports:
-      - "1919:1337"
-

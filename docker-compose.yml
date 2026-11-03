@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  bwapp:
+    container_name: bwapp
+    build: bwapp/bwapp
+    ports:
+      - 12000:80
+      
+  web:
+    build: ejercicio1
+    ports:
+      - "12001:5000"
+    environment:
+      - FLAG={testflag}
