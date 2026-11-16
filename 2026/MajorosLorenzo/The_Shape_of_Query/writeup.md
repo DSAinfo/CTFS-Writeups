@@ -5,7 +5,7 @@
 
 > **Reto:** The Shape of Query
 
-> **Vulnerabildades explotadas:** 
+> **Vulnerabilidades explotadas:** 
 
 > 	A01 - Broken Access Control
 
@@ -24,51 +24,51 @@ Progress relies on having the right infrastructure to foster collaboration. A fr
 Este ejercicio se trata de una plataforma desarrollada por una persona que se preocupa por la seguridad de sus usuarios.
 La consigna entrega un TOKEN de sesión para registrarse.
 
-![[./images/Consigna.png|1000]]
+<img src="images/Consigna.png" alt="Consigna.png" width="1000">
 
-![[./images/pedir_token.png|1000]]
+<img src="images/pedir_token.png" alt="pedir_token.png" width="1000">
 
 ## Reconocimiento
 
-La página es una interfaz GraphQL con la cual se pueden obervar los datos almacenados.
+La página es una interfaz GraphQL con la cual se pueden observar los datos almacenados.
 
 La estructura se encuentra documentada en **Docs** e indica en un comentario que permite introspección.
 
-![[./images/base.png|1200]]
+<img src="images/base.png" alt="base.png" width="1200">
 
 ### Documentación de la base de datos.
 
 Para comenzar se analiza la documentación, los tipos de query y los campos que tienen **User** y **Team**.
 
-![[./images/doc_1.png|500]]
+<img src="images/doc_1.png" alt="doc_1.png" width="500">
 
 Se indica en **User** que el campo `privateNotes` solo se puede acceder por el mismo usuario, es decir, yo no puedo leer las notas privadas de otros usuarios.
 
-![[./images/doc_user.png|500]]
+<img src="images/doc_user.png" alt="doc_user.png" width="500">
 
 Se indica en **Team** que no se puede acceder a información de otros equipos a los que el usuario no pertenezca.
 
-![[./images/doc_team.png|500]]
+<img src="images/doc_team.png" alt="doc_team.png" width="500">
 
 ### Enumeración de la base de datos
 
 Exploro los datos siguiendo la estructura mostrada en la documentación.
 
-![[./images/datos_yo_id.png|1200]]
+<img src="images/datos_yo_id.png" alt="datos_yo_id.png" width="1200">
 
 Se puede observar las notas privadas de mi usuario y el equipo al que pertenezco.
 
-![[./images/datos_yo_note_team.png|1200]]
+<img src="images/datos_yo_note_team.png" alt="datos_yo_note_team.png" width="1200">
 
 También se pueden enumerar los miembros del equipo al que pertenezco.
 
-![[./images/datos_team_members_id.png|1200]]
+<img src="images/datos_team_members_id.png" alt="datos_team_members_id.png" width="1200">
 
 ## Flag
 
 A pesar de que directamente no se pueda acceder a las notas privadas de otros usuarios, si se puede acceder a los datos de los miembros de **mi equipo**, por lo que puedo enumerar ciertos datos críticos como las **privateNotes** de **admin_1647**.
 
-![[./images/datos_flag.png|1200]]
+<img src="images/datos_flag.png" alt="datos_flag.png" width="1200">
 
 En las notas privadas de **admin_1647** se observa la flag.
 
@@ -76,7 +76,7 @@ Flag: `POCTF{81.1647.74XJQZ3BVMKVS47G.XIT6TSXWESXLCUKGQOWBHOMO5I}`
 
 ## Script.
 
-A pesar de ser un CTF simple el script de resolución automática cuenta con varios pasos ya que debe loguearse con el token generado en la primer instancia.
+A pesar de ser un CTF simple el script de resolución automática cuenta con varios pasos ya que debe loguearse con el token generado en la primera instancia.
 Por ello primero se obtiene el token, con este se registra y se actualiza la cookie de sesión, con esta nueva cookie ya se permite acceder a la API y obtener la flag.
 
 ```python

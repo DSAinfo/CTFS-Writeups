@@ -4,7 +4,7 @@
 
 > **Reto:** No Structure Required
 
-> **Vulnerabildades explotadas:** 
+> **Vulnerabilidades explotadas:** 
 
 > 	A05 - Injection
 
@@ -30,52 +30,52 @@ Open the SecureNotes login →
 The application uses a document store rather than a relational database. There is no schema enforcement.
 ```
 
-En este caso se indica que los encargados de mantener la aplicación dejaron una página de login, busqueda y una colección de registros sin eliminar.
+En este caso se indica que los encargados de mantener la aplicación dejaron una página de login, búsqueda y una colección de registros sin eliminar.
 No indica credenciales conocidas ni el nombre de alguna colección de registros que no haya sido eliminado.
 
 Deja claro que detrás la base de datos se basa en documentos y no en tablas relacionales.
 
-![[./images/Consigna.png|800]]
+<img src="images/Consigna.png" alt="Consigna.png" width="800">
 
 ## Reconocimiento
 
-Al cargar la página principal me encuentro con un login sencillo. Intento loguearme con contraseñas básicas pero son inválidas y analizo el codigo fuente.
-![[./images/Base.png|800]]
-![[./images/Contraseñas_básicas.png|800]]
-![[./images/codigo_fuente.png|800]]
+Al cargar la página principal me encuentro con un login sencillo. Intento loguearme con contraseñas básicas pero son inválidas y analizo el código fuente.
+<img src="images/Base.png" alt="Base.png" width="800">
+<img src="images/Contrase%C3%B1as_b%C3%A1sicas.png" alt="Contraseñas_básicas.png" width="800">
+<img src="images/codigo_fuente.png" alt="codigo_fuente.png" width="800">
 
-No me puedo loguear como `admin:admin`, pero en el codigo fuente se encuentra un comentario indicando que el loguin se realiza enviando los datos en formato **JSON**.
+No me puedo loguear como `admin:admin`, pero en el código fuente se encuentra un comentario indicando que el login se realiza enviando los datos en formato **JSON**.
 
 Observo la petición **POST** generada.
-![[./images/Post_raw_data.png|1200]]
+<img src="images/Post_raw_data.png" alt="Post_raw_data.png" width="1200">
 
 ## Bypass Login con NoSQL Injection
 
-Intento superar el login sin conocer las contraseñas. En este punto podría intentar injectar código SQL o NoSQL para acceder, pero en la consigna se indica que no se utiliza SQL.
-Intento injectar código NoSQL en la petición **POST** cambiando los valores de usuario y contraseña, para que con suerte cuando intente evaluar `contraseña igual a string del usuario` cambie por `contraseña no sea igual a NULL`. 
+Intento superar el login sin conocer las contraseñas. En este punto podría intentar inyectar código SQL o NoSQL para acceder, pero en la consigna se indica que no se utiliza SQL.
+Intento inyectar código NoSQL en la petición **POST** cambiando los valores de usuario y contraseña, para que con suerte cuando intente evaluar `contraseña igual a string del usuario` cambie por `contraseña no sea igual a NULL`. 
 POST data: `{"username":{"$ne":null},"password":{"$ne":null}}`
 
-![[./images/NoSQL_Injection_valid_login.png|1200]]
+<img src="images/NoSQL_Injection_valid_login.png" alt="NoSQL_Injection_valid_login.png" width="1200">
 
 Se observa que la respuesta del servidor es 200 y en los Headers se entrega una nueva cookie de **session** con `set-cookie`.
 
 Al utilizar esta nueva cookie puedo ver el dashboard logueado como `j.abernathy`.
 
-![[./images/cambio_cookie_1.png|1200]]
+<img src="images/cambio_cookie_1.png" alt="cambio_cookie_1.png" width="1200">
 
-![[./images/Login_jabernathy.png|1200]]
+<img src="images/Login_jabernathy.png" alt="Login_jabernathy.png" width="1200">
 
-En este punto la explotación de la vulnerabilidad con **Injección NoSQL** fue todo un éxito.
+En este punto la explotación de la vulnerabilidad con **Inyección NoSQL** fue todo un éxito.
 
 ## Descubrir flag
 
-En el dashboard se musetran mis notas (un listado de compra) y que la página `/browse` permite ver datos almacenados con el parámetro `?col=<name>` utilizando peticiones GET.
+En el dashboard se muestran mis notas (un listado de compra) y que la página `/browse` permite ver datos almacenados con el parámetro `?col=<name>` utilizando peticiones GET.
 
-![[./images/browse.png|1200]]
+<img src="images/browse.png" alt="browse.png" width="1200">
 
 En este punto se podrían probar varias cosas. 
 
-Loguerse con otro usuario, visualizando el dashboard de `r.calloway` y `sysadmin`. Esto se hizo cambiando la raw-data a la hora de loguearse, cambiando el **username** pero manteniendo **password not equal null**. No se obtuvo información útil.
+Loguearse con otro usuario, visualizando el dashboard de `r.calloway` y `sysadmin`. Esto se hizo cambiando la raw-data a la hora de loguearse, cambiando el **username** pero manteniendo **password not equal null**. No se obtuvo información útil.
 
 Intentar romper la query con strings especiales en `?col=string`. No se logró.
 
@@ -83,14 +83,14 @@ Probar con distintos nombres en `?col=` para ver si se encuentra alguna colecci�
 
 Probando con pocas palabras se logró encontrar una colección `secrets` en la cual se guarda la flag.
 
-![[./images/flag.png|1200]]
+<img src="images/flag.png" alt="flag.png" width="1200">
 
 Flag: `POCTF{78.1647.5a5551682bbba94a.5HLBJ4TDMWZXNJ5YLS4BIN6NEV}`
 
 ## Script automatico.
 
 Para la resolución de este CTF no se necesitó ningún script de automatización.
-Se realizo un script `solve.py` que al ejecutarlo imprime la flag obtenida.
+Se realizó un script `solve.py` que al ejecutarlo imprime la flag obtenida.
 
 ```python
 #!/usr/bin/env python3

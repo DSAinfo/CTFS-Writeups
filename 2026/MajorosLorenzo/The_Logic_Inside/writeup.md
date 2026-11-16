@@ -5,7 +5,7 @@
 
 > **Reto:** The Logic Inside
 
-> **Vulnerabildades explotadas:** 
+> **Vulnerabilidades explotadas:** 
 
 > 	A01 - Broken Access Control - SSRF
 
@@ -27,44 +27,44 @@ A second web application runs inside the same container, bound to 127.0.0.1:9001
 Investigate the preview service and determine whether you can reach the internal application. Recover your team's complete nonce and submit it in the format required by the challenge platform. The fetched response body is never exposed; your investigation must rely on the information the services return.
 ```
 
-En este caso se indica que detras del CTF existe un contenedor que presenta un servicio en la dirección `127.0.0.1:9001` y al hacer una petición a `/flag?guess=` retornará **200** en caso de que el inicio de la cadena `guess` coincida con la clave que corresponde a mi equipo o **404** en caso contrario.
+En este caso se indica que detrás del CTF existe un contenedor que presenta un servicio en la dirección `127.0.0.1:9001` y al hacer una petición a `/flag?guess=` retornará **200** en caso de que el inicio de la cadena `guess` coincida con la clave que corresponde a mi equipo o **404** en caso contrario.
 
 > bound to 127.0.0.1:9001, and is not directly accessible from outside. Its /flag?guess= endpoint returns HTTP 200 if the supplied hexadecimal string matches the beginning of your team's 16-character hexadecimal nonce, or HTTP 404 otherwise
 
-![[./images/Consigna.png|800]]
+<img src="images/Consigna.png" alt="Consigna.png" width="800">
 
 
 ## Reconocimiento
 
 Al cargar la página principal me encuentro un visualizador de URLs.
 
-![[Base.png|800]]
+<img src="images/Base.png" alt="Base.png" width="800">
 
 El cual cuenta con un filtro para no poder acceder a la IP local.
 
-![[./images/Prueba_internet_valido.png|800]]
+<img src="images/Prueba_internet_valido.png" alt="Prueba_internet_valido.png" width="800">
 
-![[./images/Prueba_local_1.png|800]]
+<img src="images/Prueba_local_1.png" alt="Prueba_local_1.png" width="800">
 
 ## Prueba bypass localhost blacklist
 
-Veo en la respuesta que el hostname es observado, por lo que por detras si se accede a la IP local.
+Veo en la respuesta que el hostname es observado, por lo que por detrás si se accede a la IP local.
 
 Intento saltar el bloqueo de la IP local cambiando `localhost` por otras cadenas válidas como la IPv4 completa, resumida, la IPv6 completa, resumida y variaciones como cambiar la IP local utilizando el número decimal, octal o hexadecimal.
 
-![[./images/Prueba_bypass_filter_1.png|600x400]]![[./images/Prueba_bypass_filter_2.png|600x400]]
+<img src="images/Prueba_bypass_filter_1.png" alt="Prueba_bypass_filter_1.png" width="600" height="400"><img src="images/Prueba_bypass_filter_2.png" alt="Prueba_bypass_filter_2.png" width="600" height="400">
 
-![[./images/Prueba_bypass_filter_3.png|600x400]]![[./images/Prueba_bypass_filter_4.png|600x400]]
+<img src="images/Prueba_bypass_filter_3.png" alt="Prueba_bypass_filter_3.png" width="600" height="400"><img src="images/Prueba_bypass_filter_4.png" alt="Prueba_bypass_filter_4.png" width="600" height="400">
 
 Al probar con la IPv4 se bloquea y la aplicación no permite el uso de IPv6.
 
 Pruebo convertir la dirección IP local a un número.
 
-![[Prueba_bypass_filter_number_1.png|1200]]
+<img src="images/Prueba_bypass_filter_number_1.png" alt="Prueba_bypass_filter_number_1.png" width="1200">
 
-Observo que no se bloqueó pero hay un error en la busqueda del contenido, por lo que pruebo con el puerto que indica la presentación.
+Observo que no se bloqueó pero hay un error en la búsqueda del contenido, por lo que pruebo con el puerto que indica la presentación.
 
-![[Prueba_bypass_filter_number_2.png]]
+<img src="images/Prueba_bypass_filter_number_2.png" alt="Prueba_bypass_filter_number_2.png">
 
 Éxito, se observa que el servidor cargó el contenido de manera exitosa.
 
@@ -74,9 +74,9 @@ Ya se probó que se puede explotar el SSRF porque el servidor que corre el clien
 
 Pruebo la existencia del archivo `/flag` nombrado en la presentación y evalúo el inicio del string `guess`.
 
-![[images/Guess_1.png|600]]
-![[images/Guess_2.png|600]]
-![[images/Guess_3.png|600]]
+<img src="images/Guess_1.png" alt="Guess_1.png" width="600">
+<img src="images/Guess_2.png" alt="Guess_2.png" width="600">
+<img src="images/Guess_3.png" alt="Guess_3.png" width="600">
 
 Veo que al probar con los caracteres `0` y `2` obtengo una respuesta `404`, pero al iniciar el string con `1` obtengo un `200`. Esto me indica que mi nonce inicia con `1` y puedo automatizar esta prueba para los caracteres faltantes y obtener así el nonce completo.
 
